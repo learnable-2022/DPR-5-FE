@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 6rem;
+    padding: 13px 40px;
     background: #f6f6f6;
+    font-family: var(--font-family);
     
 }
 
@@ -14,9 +15,18 @@
     align-items: center;
 }
 
-.medisync__navbar-logo img {
+.medisync__navbar-left {
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 0px;
+    align-items: center;
+}
+
+.medisync__navbar-left img {
+    position: relative;
     width: 118.87px;
     height: 28.07px;
+    padding-right: 100px;
 }
 
 .medisync__navbar-links {
@@ -28,9 +38,9 @@
     color: #1B1A1A;
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
-    padding: 0 30px;
+    padding-left: 56px;
     cursor: pointer;
 }
 
@@ -45,21 +55,40 @@
     cursor: pointer;
 }
 
-.medisync__navbar-wallet button,
+.medisync__navbar-links p:hover,
+.medisync__navbar-menu_container p:hover {
+    color: #460570;
+    font-weight: 700;
+    transition: 1s;
+}
+
+.medisync__navbar-links p:active {
+    color: #530885;
+    font-weight: 700;
+}
+
+.medisync__navbar-right button,
 .medisync__navbar-menu_container-links-wallet button {
-    padding: 17px 55px;
+    padding: 10px 55px;
     color: #fff;
     font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 32px;
-
     background: #460570;
     border-radius: 8px;
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.medisync__navbar-right button:hover,
+.medisync__navbar-menu_container-links-wallet button:hover {
+    color: #460570;
+    background: #cecece;
+    box-shadow: 0 0 2px #1B1A1A;
+    transition: 1s;
 }
 
 .medisync__navbar-menu {
@@ -79,13 +108,18 @@
 
     text-align: end;
     background: #fff;
-    padding: 2rem;
+    padding: 10px;
     position: absolute;
     top: 100px;
     right: 0;
     margin-top: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 5 rgba(0,0,0,0.2)
+}
+
+.medisync__navbar-menu_container-links button {
+    padding: 7px 10px;
+    font-size: 15px;
 }
 
 .medisync__navbar-menu_container p {
@@ -106,23 +140,17 @@
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 650px) {
     .medisync__navbar {
-        padding: 2rem 1rem;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .medisync__navbar {
-        padding: 2rem 2rem;
+        padding: 20px 10px;
     }
 
-    .medisync__navbar-wallet {
+    .medisync__navbar-right {
         display: none;
     }
 
     .medisync__navbar-menu_container {
-        top: 60px;
+        top: 40px;
     }
 
     .medisync__navbar-menu_container-links-wallet {

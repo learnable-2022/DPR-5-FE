@@ -11,14 +11,15 @@ const Feedback = () => {
 
       <div className="medisync__feedback_client">
         <p>
-        “Making use of Medisync platform is the best decisions I made has a lifestyle blogger because whenever I travel, I can always have access to my recent medical history to use”.
+          “Making use of Medisync platform is the best decisions I made has a lifestyle blogger 
+          because whenever I travel, I can always have access to my recent medical history”.
         </p> 
         <div className="medisync__feedback_client-image">
           <img src={Client1} alt="Client1" />
         </div>
         <div className="medisync__feedback_client-Name">
-          <h1>Hope Atam</h1>
-          <p>Lifestyle Blogger</p>
+          <h1>Hope Atam <br/>Lifestyle Blogger</h1>
+          <p></p>
         </div>
       </div>
     </div>

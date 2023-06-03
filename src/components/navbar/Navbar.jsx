@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/logo.png';
 import './navbar.css';
+import { Link } from 'react-router-dom';
 
 const Menu = () => (
   <>
-  <p><a href="#">For Patients</a></p>
-  <p><a href="#">For Doctors</a></p>
-  <p><a href="#">About</a></p>
-  <p><a href="#">Services</a></p>
+  <p><Link to="/home">Home</Link></p>
+  <p><Link to="/about">About</Link></p>
+  <p><Link to="/demo">Demo</Link></p>
+  <p><Link to="/services">Services</Link></p>
   </>
 )
 
@@ -18,15 +19,16 @@ const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className="medisync__navbar">
       <div className="medisync__navbar-container">
-        <div className="medisync__navbar-logo">
+        <div className="medisync__navbar-left">
           <img src={logo} alt="logo" />
+
+          <div className="medisync__navbar-links">
+            <Menu />
+          </div>
         </div>
 
-        <div className="medisync__navbar-links">
-          <Menu />
-        </div>
-        <div className="medisync__navbar-wallet">
-          <button type="button">Connect Wallet</button>
+        <div className="medisync__navbar-right">
+          <button type="button">Get Started</button>
         </div>
       </div>
       <div className="medisync__navbar-menu">
@@ -39,7 +41,7 @@ const [toggleMenu, setToggleMenu] = useState(false);
             <div className="medisync__navbar-menu_container-links">
               <Menu />
               <div className="medisync__navbar-menu_container-links-wallet">
-                <button type="button">Connect Wallet</button>
+                <button type="button">Get Started</button>
               </div>
             </div>
           </div>

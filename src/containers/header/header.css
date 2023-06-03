@@ -1,84 +1,118 @@
 .medisync__header {
     display: flex;
-    background: #F1E6F8;
-    padding: 4rem 6rem;
+    justify-content: center;
+    background: #F6F6F6;
+    padding: 30px 40px;
     font-family: var(--font-family);
 }
 
 .medisync__header-content {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    margin-right: 8rem;
+    background: #500680;
+    border-radius: 10px 0px 0px 10px;
+    padding: 0 30px 0 60px;
 }
 
 .medisync__header-content h1 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 48px;
-    line-height: 52px;
-    letter-spacing: -0.005em;
-    color: #000000;
+    line-height: 72px;
+    color: #FFFFFF;    
 }
 
 .medisync__header-content p {
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 28px;
-    color: #656462;
-    margin-top: 1.5rem;
-    padding-right: 2rem;
+    color: #FFFFFF;
+    margin: 0 90px 0 0;
 }
 
 .medisync__header-content__demo button {
-    padding: 1.2rem 2rem;
-    background: #460570;
-    margin-top: 1.5rem;
-    border-radius: 8px;
-
-    font-weight: 700;
-    font-size: 24px;
-    color: #FFFFFF;
+    padding: 15px 26px;
+    margin-top: 32px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+    color: #500680;
     border: none;
     outline: none;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.medisync__header-content__demo button:hover {
+    color: #313131;
+    background: #dddddd;
+    transition: 1s;
+}
+
+.medisync__header-image {
+    min-width: 50%;
 }
 
 .medisync__header-image img{
     width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 1050px) {
     .medisync__header {
         flex-direction: column;
-        padding: 4rem;
     }
 
-    .medisync__header-content {
-        margin: 0 0 3rem;
+    .medisync__header-content {        
+        border-radius: 10px 10px 0px 0px;
+        padding: 35px 70px;
+    }
+    
+    .medisync__header-content p {
+        margin: 0;   
     }
 }
 
 @media screen and (max-width: 650px) {
-    .medisync__header h1 {
-        font-size: 40px;
-        line-height: 45px;
+    .medisync__header {
+        padding: 0;
     }
 
+    .medisync__header-content {
+        padding: 35px 35px;
+    }
+
+    .medisync__header h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .medisync__header-content p {
+        padding-right: 80px;  
+    }
+
+    
     .medisync__header-content__demo button {
         font-size: 18px;
+        padding: 10px 20px;
 
     }
 }
 
 @media screen and (max-width: 490px) {
     .medisync__header h1 {
-        font-size: 36px;
+        font-size: 30px;
         line-height: 44px;
+    }
+
+    .medisync__header-content p {
+        font-size: 16px;
+        line-height: 24px;   
     }
 
     .medisync__header-content__demo button {
         font-size: 14px;
-
+        padding: 10px 25px;
     }
 }

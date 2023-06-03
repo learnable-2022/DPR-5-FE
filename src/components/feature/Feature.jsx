@@ -20,8 +20,8 @@ const Feature = () => {
           <img src={Privacy} alt="Privacy" />
         </div>
           <div className="medisync__feature-text">
-            <h1>Emergency Care</h1>
-            <p>Do you have an emergency?</p>
+            <h1>Secured Data</h1>
+            <p>Save record with Web3</p>
           </div>
       </div>
 
@@ -30,8 +30,8 @@ const Feature = () => {
           <img src={Privacy} alt="Privacy" />
         </div>
           <div className="medisync__feature-text">
-          <h1>Live Chat</h1>
-          <p>Have a live chat with us</p>
+          <h1>Share Record</h1>
+          <p>Share record with wallet Address</p>
         </div>
       </div>
     </div>
