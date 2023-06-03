@@ -1,0 +1,69 @@
+.medisync__ourservices{
+    font-family: var(--font-family);
+}
+
+.medisync__ourservices h1 {
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 72px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #8A33C3;
+}
+
+.medisync__ourservices_tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 40px 100px 40px;
+}
+
+.medisync__ourservices_tabs-tab {
+    width: 350px;
+}
+
+.medisync__ourservices_tabs-tab-image img {
+    width: 350px;
+    border-radius: 10px;
+}
+
+.medisync__ourservices_tabs-tab h2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.medisync__ourservices_tabs-tab p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+@media screen and (max-width: 750px) {
+    .medisync__ourservices h1 {
+        font-size: 30px;
+    }
+    .medisync__ourservices_tabs {
+        padding: 10px 0 40px 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .medisync__ourservices_tabs-tab {
+        padding-bottom: 40px;
+    }
+
+    .medisync__ourservices_tabs-tab h2 {
+        font-size: 24px;
+        line-height: 18px;
+    }
+
+    .medisync__ourservices_tabs-tab p {
+        font-size: 14px;
+        line-height: 28px;
+    }
+}

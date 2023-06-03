@@ -1,0 +1,53 @@
+.medisync__aboutus {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px 0 60px;
+}
+
+.medisync__aboutus_text {
+    margin: 0  40px 0 0;
+}
+
+.medisync__aboutus_text h1 {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 72px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #8A33C3;
+}
+
+.medisync__aboutus_text p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: justify;
+    color: #4b4b4b;
+}
+
+@media screen and (max-width: 750px) {
+    .medisync__aboutus {
+        flex-wrap: wrap;
+        padding: 20px 10px 0 10px;
+    }
+
+    .medisync__aboutus_text {
+        margin: 0;
+    }
+
+    .medisync__aboutus_text h1 {
+        font-size: 40px;
+        line-height: 52px;
+    }
+
+    .medisync__aboutus_text p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .medisync__aboutus_image img {
+        width: 350px;
+    }
+}

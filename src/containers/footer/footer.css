@@ -1,0 +1,93 @@
+.medisync__footer {
+    background: #F1E6F8;
+    font-family: var(--font-family);
+    padding: 4rem 4rem 1rem 4rem;
+}
+
+.medisync__footer_sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.medisync__footer_sections_contact-logo {
+    padding: 12px 0 0 0;
+}
+
+.medisync__footer_sections_contact p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    color: #000000;
+    padding: 0 0 0 24px;
+}
+
+.medisync__footer_sections_contact-icons {
+    padding: 0 0 0 24px;
+}
+
+.medisync__footer_sections_contact-icons img {
+    padding: 0 6px;
+}
+
+.medisync__footer_sections_section h1 {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+.medisync__footer_sections_section p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 12px;
+    padding-left: 24px;
+    color: #000000;
+}
+
+.medisync__footer-copyright {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    color: #939393;
+}
+
+@media screen and (max-width: 800px) {
+    .medisync__footer_sections {
+        flex-wrap: wrap;
+    }
+
+    .medisync__footer_sections_section {
+        padding: 10px 0;
+    }
+
+    .medisync__footer_sections_contact-logo {
+        padding: 0;
+    }
+    
+    .medisync__footer_sections_contact p {
+        font-size: 12px;
+        line-height: 10px;
+        padding: 0 0 0 24px;
+    }
+    
+    .medisync__footer_sections_contact-icons {
+        padding: 0 0 0 12px;
+    }
+    
+    .medisync__footer_sections_section h1 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .medisync__footer_sections_section p {
+        font-size: 12px;
+        line-height: 8px;
+    }
+
+    .medisync__footer-copyright {
+        font-size: 11px;
+        line-height: 28px;
+    }
+}
