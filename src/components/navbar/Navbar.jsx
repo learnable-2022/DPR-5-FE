@@ -1,20 +1,28 @@
-import React, {useState} from 'react';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../../assets/logo.png';
-import './navbar.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import logo from "../../assets/logo.png";
+import "./navbar.css";
+import { Link } from "react-router-dom";
 
 const Menu = () => (
   <>
-  <p><Link to="/home">Home</Link></p>
-  <p><Link to="/about">About</Link></p>
-  <p><Link to="/demo">Demo</Link></p>
-  <p><Link to="/services">Services</Link></p>
+    <p>
+      <Link to="/">Home</Link>
+    </p>
+    <p>
+      <Link to="/about">About</Link>
+    </p>
+    <p>
+      <Link to="/demo">Demo</Link>
+    </p>
+    <p>
+      <Link to="/services">Services</Link>
+    </p>
   </>
-)
+);
 
 const Navbar = () => {
-const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <div className="medisync__navbar">
@@ -32,23 +40,34 @@ const [toggleMenu, setToggleMenu] = useState(false);
         </div>
       </div>
       <div className="medisync__navbar-menu">
-        {toggleMenu
-          ? <RiCloseLine color="#460570" size={27} onClick={() => setToggleMenu(false)} />
-          : <RiMenu3Line color="#460570" size={27} onClick={() => setToggleMenu(true)} />
-        }
+        {toggleMenu ? (
+          <RiCloseLine
+            color="#460570"
+            size={27}
+            onClick={() => setToggleMenu(false)}
+          />
+        ) : (
+          <RiMenu3Line
+            color="#460570"
+            size={27}
+            onClick={() => setToggleMenu(true)}
+          />
+        )}
         {toggleMenu && (
           <div className="medisync__navbar-menu_container .scale-up-ver-top">
             <div className="medisync__navbar-menu_container-links">
               <Menu />
               <div className="medisync__navbar-menu_container-links-wallet">
-                <button type="button">Get Started</button>
+                <button type="button">
+                  <Link to="/dashboard">Get Started</Link>
+                </button>
               </div>
             </div>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
