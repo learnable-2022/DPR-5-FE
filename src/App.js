@@ -3,10 +3,10 @@ import Home from "./pages/Home";
 import Demo from "./pages/Demo";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import MedicalRecords from "./pages/MedicalRecords";
-import Medical from "./pages/Medical";
 import DashboardLayout from "./components/DashboardLayout";
 import ConnectWallet from "./pages/ConnectWallet";
+import ViewMedicalRecords from "./pages/ViewMedicalRecords";
+import ViewOtherRecords from "./pages/ViewOtherRecords";
 
 const App = () => {
   return (
@@ -24,9 +24,9 @@ const App = () => {
             />
             <Route
               path="/dashboard/medicalrecords"
-              element={<MedicalRecords />}
+              element={<ViewMedicalRecords />}
             />
-            <Route path="/dashboard/medical" element={<Medical />} />
+            <Route path="/dashboard/medical" element={<ViewOtherRecords />} />
           </Route>
         </Routes>
       </BrowserRouter>
