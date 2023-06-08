@@ -24,7 +24,7 @@ const Benefits = () => {
             <img src={Laptop} alt="Laptop" />
           </div>
           <p>Save Your Health Records Online and Offline</p>
-            <Link to="/dashboard"><button type='button'>Explore</button></Link>
+            <Link to="/welcome"><button type='button'>Explore</button></Link>
         </div>
 
         <div className="medisync__benefits-tabs_tab">
@@ -32,7 +32,7 @@ const Benefits = () => {
             <img src={Call} alt="Call" />
           </div>
           <p>Connect  with a  Wallet</p>
-          <Link to="/dashboard"><button type='button'>Explore</button></Link>
+          <Link to="/welcome"><button type='button'>Explore</button></Link>
         </div>
 
         <div className="medisync__benefits-tabs_tab">
@@ -40,7 +40,7 @@ const Benefits = () => {
             <img src={Privacy} alt="Privacy" />
           </div>
           <p>Your Health Record protected with Blockchain security</p>
-          <Link to="/dashboard"><button type='button'>Explore</button></Link>
+          <Link to="/welcome"><button type='button'>Explore</button></Link>
         </div>
       </div>
     </div>

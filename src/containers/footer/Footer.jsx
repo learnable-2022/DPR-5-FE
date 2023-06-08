@@ -1,11 +1,14 @@
 import React from 'react';
 import './footer.css';
+import { Link } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png';
-import Facebook from '../../assets/facebook.png';
-import Twitter from '../../assets/twitter.png';
 import Linkedin from '../../assets/linkedin.png';
-import Instagram from '../../assets/instagram.png';
+import Whatsapp from '../../assets/whatsapp.png';
+
+// import Facebook from '../../assets/facebook.png';
+// import Twitter from '../../assets/twitter.png';
+// import Instagram from '../../assets/instagram.png';
 
 const Footer = () => {
   return (
@@ -19,26 +22,25 @@ const Footer = () => {
             Keep your health under control.
           </p>
           <div className="medisync__footer_sections_contact-icons">
+            <a href="https://wa.me/+2349061404988" target="blank"><img src={Whatsapp} alt="Whatsapp" /></a>
+            <a href="https://www.linkedin.com/in/medisync-incoporation-70616527a" target="blank"><img src={Linkedin} alt="Linkedin" /></a>
+            {/* <img src={Facebook} alt="Facebook" />
             <img src={Twitter} alt="Twitter" />
-            <img src={Facebook} alt="Facebook" />
-            <img src={Linkedin} alt="Linkedin" />
-            <img src={Instagram} alt="Instagram" />
+            <img src={Instagram} alt="Instagram" /> */}
           </div>
         </div>
 
         <div className="medisync__footer_sections_section">
           <h1>Company</h1>
-          <p>About Us</p>
-          <p>Pricing</p>
-          <p>Blog</p>
-          <p>Terms of Use</p>
+          <Link to="/about"><p>About Us</p></Link>
+          <Link to="/demo"><p>Demo</p></Link>
         </div>
 
         <div className="medisync__footer_sections_section">
-          <h1>Services</h1>
-          <p>Emergency Services</p>
-          <p>Secure data based platform</p>
-          <p>Qualified doctors</p>
+          <Link to="/services"><h1>Services</h1></Link>
+          <Link to="/services"><p>Privacy</p></Link>
+          <Link to="/services"><p>Anonymity</p></Link>
+          <Link to="/services"><p>Security</p></Link>
         </div>
 
       </div>
