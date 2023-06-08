@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import Web3 from './pages/Web3';
 import Welcome from './pages/Welcome';
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/web3" element={<Web3 />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>

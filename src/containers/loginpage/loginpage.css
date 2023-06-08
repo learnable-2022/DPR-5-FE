@@ -4,26 +4,26 @@ body {
     box-sizing: border-box;
 }
 
-.medisync__registerpage {
+.medisync__loginpage {
     background: #F1E6F8;
     padding: 40px;
     font-family: var(--font-family);
 }
 
-.medisync__registerpage-body {
+.medisync__loginpage-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.medisync__registerpage-body_form {
+.medisync__loginpage-body_form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 80px;
 }
 
-.medisync__registerpage-body_form h1 {
+.medisync__loginpage-body_form h1 {
     font-weight: 700;
     font-size: 36px;
     line-height: 30px;
@@ -32,21 +32,13 @@ body {
     margin: 0;
 }
 
-.medisync__registerpage-body_form p {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    color: #747474;
-}
-
-.register-form {
+.login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.register-form label {
+.login-form label {
     font-weight: 400;
     font-size: 14px;
     line-height: 28px;
@@ -54,7 +46,7 @@ body {
     color: #C59AE1;
 }
 
-.register-form input {
+.login-form input {
     width: 375px;
     height: 35px;
     background: #F1E6F8;
@@ -69,12 +61,12 @@ body {
     color: #4e4e4e;
 }
 
-.register-form input:hover {
+.login-form input:hover {
     border: 2px solid #ffffff;
-    transition: 1s;
+    transition: 0.6s;
 }
 
-.register-form button {
+.login-form button {
     width: 385px;
     height: 40px;
     background: #8A33C3;
@@ -89,49 +81,55 @@ body {
     margin-top: 20px;
 }
 
-.medisync__registerpage-login {
+.login-form button:hover {
+    background: #bbbbbb;
+    color: #8A33C3;
+    transition: 0.6s;
+}
+
+.medisync__loginpage-login {
     background: none;
     color: #6b6b6b;
     border: none;
     margin: 5px 0;
 }
 
-.medisync__registerpage-body_image {
+.medisync__loginpage-body_image {
     min-width: 50%;
 }
 
-.medisync__registerpage-body_image img {
+.medisync__loginpage-body_image img {
     max-width: 100%;
 }
 
 @media screen and (max-width: 1100px) {
-    .medisync__registerpage-body {
+    .medisync__loginpage-body {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
     }
     
-    .medisync__registerpage-body_image img {
+    .medisync__loginpage-body_image img {
         max-width: 100%;
         border-radius: 20px;
     }
 
-    .medisync__registerpage-body_form {
+    .medisync__loginpage-body_form {
         padding: 30px 80px;
     }
 }
 
 @media screeen and (max-width: 490px) {
-    .medisync__registerpage {
+    .medisync__loginpage {
         padding: 10px;
     }
 
-    .register-form input {
+    .login-form input {
         width: 200px;
     }
 
-    .register-form button {
+    .login-form button {
         width: 200px;
     }
 }
