@@ -1,21 +1,20 @@
 import React from "react";
 
-const DisabilitiesModal = (props) => {
+const OtherInformationModal = (props) => {
   if (!props.show) {
     return null;
   }
   return (
-    <div className="modal disabilities_modal" onClick={props.onClose}>
+    <div className="modal other-information_modal" onClick={props.onClose}>
       <div className="modal_content" onClick={(e) => e.stopPropagation()}>
         <div className="modal_title">
-          <h2>Add Disability</h2>
+          <h2>Title</h2>
+          <input type="text" placeholder="Enter title here" />
         </div>
         <div className="modal_body">
-          <h4>Disability Type</h4>
-          <input type="checkbox" />
-          <p>Learning Disability</p>
           <h4>Diagnosed date</h4>
           <input type="date" className="calendar" />
+          <input type="text" placeholder="Disease" />
           <input type="text" placeholder="Description" />
           <input type="text" placeholder="Medication" />
         </div>
@@ -30,4 +29,4 @@ const DisabilitiesModal = (props) => {
   );
 };
 
-export default DisabilitiesModal;
+export default OtherInformationModal;
