@@ -3,6 +3,7 @@ import './benefits.css';
 import Laptop from '../../assets/laptop.png'
 import Call from '../../assets/call.png'
 import Privacy from '../../assets/privacy.png'
+import { Link } from 'react-router-dom';
 
 const Benefits = () => {
   return (
@@ -23,7 +24,7 @@ const Benefits = () => {
             <img src={Laptop} alt="Laptop" />
           </div>
           <p>Save Your Health Records Online and Offline</p>
-          <button type='button'>Explore</button>
+            <Link to="/dashboard"><button type='button'>Explore</button></Link>
         </div>
 
         <div className="medisync__benefits-tabs_tab">
@@ -31,7 +32,7 @@ const Benefits = () => {
             <img src={Call} alt="Call" />
           </div>
           <p>Connect  with a  Wallet</p>
-          <button type='button'>Explore</button>
+          <Link to="/dashboard"><button type='button'>Explore</button></Link>
         </div>
 
         <div className="medisync__benefits-tabs_tab">
@@ -39,7 +40,7 @@ const Benefits = () => {
             <img src={Privacy} alt="Privacy" />
           </div>
           <p>Your Health Record protected with Blockchain security</p>
-          <button type='button'>Explore</button>
+          <Link to="/dashboard"><button type='button'>Explore</button></Link>
         </div>
       </div>
     </div>

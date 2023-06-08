@@ -59,7 +59,8 @@
 .medisync__navbar-menu_container p:hover {
     color: #460570;
     font-weight: 700;
-    transition: 1s;
+    transition: 2s;
+    transform-style: flats;
 }
 
 .medisync__navbar-links p:active {

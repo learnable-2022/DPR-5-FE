@@ -28,7 +28,7 @@ const [toggleMenu, setToggleMenu] = useState(false);
         </div>
 
         <div className="medisync__navbar-right">
-          <button type="button">Get Started</button>
+          <Link to="/welcome"><button type="button">Get Started</button></Link>
         </div>
       </div>
       <div className="medisync__navbar-menu">
@@ -41,7 +41,7 @@ const [toggleMenu, setToggleMenu] = useState(false);
             <div className="medisync__navbar-menu_container-links">
               <Menu />
               <div className="medisync__navbar-menu_container-links-wallet">
-                <button type="button">Get Started</button>
+                <Link to="/welcome"><button type="button">Get Started</button></Link>
               </div>
             </div>
           </div>

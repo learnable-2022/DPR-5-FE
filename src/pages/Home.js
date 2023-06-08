@@ -1,5 +1,4 @@
-import { Benefits, Demo, Feedback, Footer, Header, Joinus, Whyus} from '../containers';
-import { Navbar, Feature } from '../components';
+import { Navbar, Feature, Benefits, Demo, Feedback, Footer, Header, Joinus, Whyus} from '../containers';
 
 const Home = () => {
   return (
