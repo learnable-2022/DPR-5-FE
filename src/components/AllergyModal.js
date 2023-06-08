@@ -5,7 +5,7 @@ const AllergyModal = (props) => {
     return null;
   }
   return (
-    <div className="modal" onClick={props.onClose}>
+    <div className="modal allergy_modal" onClick={props.onClose}>
       <div className="modal_content" onClick={(e) => e.stopPropagation()}>
         <div className="modal_title">
           <h2>Add Allergy</h2>
