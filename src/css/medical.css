@@ -1,0 +1,78 @@
+.medical-records {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* form {
+    display: flex;
+    gap: 20px;
+} */
+  
+.date {
+    display: flex;
+    gap: 10px;
+}
+
+.from,
+.to {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 7px;
+    width: 120px;
+    font-size: 14px;
+    color: grey;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.symptoms,
+.sickness,
+.medication {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 70px 0 0;
+    width: 60%;
+}
+
+.symptoms h4 {
+    font-size: 20px;
+}
+
+#symptoms_card {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 5px 5px 30px lightgray;
+}
+
+#symptoms_card h4 {
+    font-size: 20px;
+    color: #460570;
+}
+
+#sickness_card {
+    width: 45%;
+    border: 2px solid #460570;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#med {
+    width: 45%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: aqua;
+}
+
+.search_icon {
+    position: absolute;
+    left: 76.5%;
+}

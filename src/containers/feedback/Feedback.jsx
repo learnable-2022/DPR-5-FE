@@ -19,7 +19,6 @@ const Feedback = () => {
         </div>
         <div className="medisync__feedback_client-Name">
           <h1>Hope Atam <br/>Lifestyle Blogger</h1>
-          <p></p>
         </div>
       </div>
     </div>

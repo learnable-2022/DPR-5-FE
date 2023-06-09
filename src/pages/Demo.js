@@ -1,11 +1,12 @@
-import { Navbar } from '../components';
+import { Navbar, Thedemo, Footer } from '../containers';
 
 const Demo = () => {
   return (
     <div>
         <div className="Demo">
           <Navbar />
-          <h1>Demo Page</h1>
+          <Thedemo />
+          <Footer />
         </div>
     </div>
   )
