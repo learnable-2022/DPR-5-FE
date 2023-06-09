@@ -66,7 +66,8 @@ body {
     font-size: 14px;
     line-height: 28px;
     text-align: left;
-    color: #4e4e4e;
+    color: #777777;
+    padding-left: 15px;
 }
 
 .register-form input:hover {
@@ -75,7 +76,7 @@ body {
 }
 
 .register-form button {
-    width: 385px;
+    width: 395px;
     height: 40px;
     background: #8A33C3;
     border: none;
@@ -87,6 +88,11 @@ body {
     text-align: center;
     color: #F1E6F8;
     margin-top: 20px;
+}
+
+.register-form button:hover {
+    background: #c9c9c9;
+    color: #383838;
 }
 
 .medisync__registerpage-login {

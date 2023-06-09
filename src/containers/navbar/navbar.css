@@ -63,11 +63,6 @@
     transform-style: flats;
 }
 
-.medisync__navbar-links p:active {
-    color: #530885;
-    font-weight: 700;
-}
-
 .medisync__navbar-right button,
 .medisync__navbar-menu_container-links-wallet button {
     padding: 10px 55px;
@@ -129,6 +124,11 @@
 
 .medisync__navbar-menu_container-links-wallet {
     display: none;
+}
+
+.active {
+    color: #530885;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 1050px) {

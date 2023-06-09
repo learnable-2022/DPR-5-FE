@@ -8,7 +8,7 @@ const Welcomepage = () => {
   return (
     <div className="medisync__welcomepage">
       <div className="medisync__welcomepage-logo">
-        <img src={Logo} alt="Logo"/>
+        <Link to="/"><img src={Logo} alt="Logo"/></Link>
       </div>
       <div className="medisync__welcomepage-body">
         <div className="medisync__welcomepage-body_text">
