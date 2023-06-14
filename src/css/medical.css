@@ -4,10 +4,10 @@
     align-items: flex-start;
 }
 
-form {
+/* form {
     display: flex;
     gap: 20px;
-}
+} */
   
 .date {
     display: flex;

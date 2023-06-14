@@ -44,15 +44,9 @@
 .medisync__feedback_client-Name h1 {
     font-weight: 500;
     font-size: 20px;
+    line-height: 30px;
     text-align: center;
     color: #000000;
-}
-
-.medisync__feedback_client-Name p {
-    font-weight: 700;
-    font-size: 20px;
-    text-align: center;
-    color: #460570;
 }
 
 @media screen and (max-width: 1050px) {

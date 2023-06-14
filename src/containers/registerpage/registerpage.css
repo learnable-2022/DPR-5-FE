@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.medisync__registerpage {
+    background: #F1E6F8;
+    padding: 40px;
+    font-family: var(--font-family);
+}
+
+.medisync__registerpage-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medisync__registerpage-body_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.medisync__registerpage-body_form h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    color: #7209B7;
+    margin: 0;
+}
+
+.medisync__registerpage-body_form p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #747474;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-form label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: left;
+    color: #C59AE1;
+}
+
+.register-form input {
+    width: 375px;
+    height: 35px;
+    background: #F1E6F8;
+    border: 2px solid #9412ED;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: left;
+    color: #777777;
+    padding-left: 15px;
+}
+
+.register-form input:hover {
+    border: 2px solid #ffffff;
+    transition: 1s;
+}
+
+.register-form button {
+    width: 395px;
+    height: 40px;
+    background: #8A33C3;
+    border: none;
+    border-radius: 8px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #F1E6F8;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background: #c9c9c9;
+    color: #383838;
+}
+
+.medisync__registerpage-login {
+    display: flex;
+    gap: 5px;
+    background: none;
+    color: #6b6b6b;
+    border: none;
+    margin: 5px 0;
+}
+
+.medisync__registerpage-login span {
+    font-weight: 600;
+    color: #7209B7;
+    cursor: pointer;
+}
+
+.medisync__registerpage-body_image {
+    min-width: 50%;
+}
+
+.medisync__registerpage-body_image img {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+    .medisync__registerpage-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .medisync__registerpage-body_image img {
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .medisync__registerpage-body_form {
+        padding: 30px 80px;
+    }
+}
+
+@media screeen and (max-width: 490px) {
+    .medisync__registerpage {
+        padding: 10px;
+    }
+
+    .register-form input {
+        width: 200px;
+    }
+
+    .register-form button {
+        width: 200px;
+    }
+}
