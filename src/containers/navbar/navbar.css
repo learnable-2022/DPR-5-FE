@@ -58,12 +58,8 @@
 .medisync__navbar-menu_container p:hover {
     color: #460570;
     font-weight: 700;
-    transition: 1s;
-}
-
-.medisync__navbar-links p:active {
-    color: #530885;
-    font-weight: 700;
+    transition: 2s;
+    transform-style: flats;
 }
 
 .medisync__navbar-right button,
@@ -127,6 +123,11 @@
 
 .medisync__navbar-menu_container-links-wallet {
     display: none;
+}
+
+.active {
+    color: #530885;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 1050px) {

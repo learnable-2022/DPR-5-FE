@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Menu = () => (
   <>
     <p>
-      <Link to="/">Home</Link>
+      <Link to="/home">Home</Link>
     </p>
     <p>
       <Link to="/about">About</Link>
@@ -58,9 +58,7 @@ const Navbar = () => {
             <div className="medisync__navbar-menu_container-links">
               <Menu />
               <div className="medisync__navbar-menu_container-links-wallet">
-                <button type="button">
-                  <Link to="/dashboard">Get Started</Link>
-                </button>
+                <button type="button">Get Started</button>
               </div>
             </div>
           </div>

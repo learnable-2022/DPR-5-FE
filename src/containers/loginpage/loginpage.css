@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.medisync__loginpage {
+    background: #F1E6F8;
+    padding: 40px;
+    font-family: var(--font-family);
+}
+
+.medisync__loginpage-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medisync__loginpage-body_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.medisync__loginpage-body_form h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    color: #7209B7;
+    margin: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: left;
+    color: #C59AE1;
+}
+
+.login-form input {
+    width: 375px;
+    height: 35px;
+    background: #F1E6F8;
+    border: 2px solid #9412ED;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: left;
+    color: #4e4e4e;
+}
+
+.login-form input:hover {
+    border: 2px solid #ffffff;
+    transition: 0.6s;
+}
+
+.login-form button {
+    width: 385px;
+    height: 40px;
+    background: #8A33C3;
+    border: none;
+    border-radius: 8px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #F1E6F8;
+    margin-top: 20px;
+}
+
+.login-form button:hover {
+    background: #bbbbbb;
+    color: #8A33C3;
+    transition: 0.6s;
+}
+
+.medisync__loginpage-login {
+    background: none;
+    color: #6b6b6b;
+    border: none;
+    margin: 5px 0;
+}
+
+.medisync__loginpage-body_image {
+    min-width: 50%;
+}
+
+.medisync__loginpage-body_image img {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+    .medisync__loginpage-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .medisync__loginpage-body_image img {
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .medisync__loginpage-body_form {
+        padding: 30px 80px;
+    }
+}
+
+@media screeen and (max-width: 490px) {
+    .medisync__loginpage {
+        padding: 10px;
+    }
+
+    .login-form input {
+        width: 200px;
+    }
+
+    .login-form button {
+        width: 200px;
+    }
+}
