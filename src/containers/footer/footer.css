@@ -64,12 +64,20 @@
 }
 
 @media screen and (max-width: 800px) {
+    .medisync__footer {
+        padding: 20px 10px;
+    }
+    
     .medisync__footer_sections {
         flex-wrap: wrap;
     }
 
+    .medisync__footer_sections_contact {
+        padding-right: 100px;
+    }
+
     .medisync__footer_sections_section {
-        padding: 10px 0;
+        padding: 10px 30px 10px 25px;
     }
 
     .medisync__footer_sections_contact-logo {

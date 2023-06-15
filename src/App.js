@@ -8,10 +8,10 @@ import Web3 from './pages/Web3';
 import Welcome from './pages/Welcome';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import DashboardLayout from './components/DashboardLayout';
 import ConnectWallet from './pages/ConnectWallet';
-import ViewMedicalRecords from './pages/ViewMedicalRecords';
-import ViewOtherRecords from './pages/ViewOtherRecords';
+// import DashboardLayout from './components/DashboardLayout';
+// import ViewMedicalRecords from './pages/ViewMedicalRecords';
+// import ViewOtherRecords from './pages/ViewOtherRecords';
 
 const App = () => {
   return (
@@ -27,7 +27,8 @@ const App = () => {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="/connectwallet" element={<ConnectWallet />} />
+          {/* <Route path="/dashboard" element={<DashboardLayout />}>
             <Route
               path="/dashboard/connectwallet"
               element={<ConnectWallet />}
@@ -37,7 +38,7 @@ const App = () => {
               element={<ViewMedicalRecords />}
             />
             <Route path="/dashboard/medical" element={<ViewOtherRecords />} />
-          </Route>
+          </Route> */}
         </Routes>
       </BrowserRouter>
     </div>

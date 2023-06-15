@@ -91,7 +91,7 @@ const Loginpage = () => {
               // (<span className="successful">{signupDetails.message}</span>) : 
               // (<span className="successful">{signupDetails.status}</span>)
               (loginDetails.status==="success") ?
-              (<Link to="/dashboard/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
               (<span className="successful">{loginDetails.message}</span>)
             }
           </form>

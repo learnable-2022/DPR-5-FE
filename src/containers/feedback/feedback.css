@@ -4,49 +4,74 @@
     justify-content: center;
     align-items: center;
     background: #fff;
-    padding: 40px 80px;
+    padding: 40px 0 120px 0;
     font-family: var(--font-family);
 }
 
 .medisync__feedback h1 {
-    padding: 40px 0 15px 0;
+    padding: 0 0 15px 0;
     font-weight: 500;
     font-size: 36px;
-    line-height: 44px;
     text-align: center;
     letter-spacing: -0.02em;
     color: #1B1A1A;
 }
 
-.medisync__feedback_client {
+.medisync__feedback_clients {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background: #DADADA;
-    margin: 0 200px 50px 200px;
+}
+
+.arrow img {
+    width: 40px;
+}
+.medisync__feedback_client {
+    position: relative;
+    width: 800px;
+    background: #E8EDFB;
+    border-radius: 10px;
     box-shadow: 0px 18.1889px 36.3778px rgba(190, 190, 190, 0.2);
 }
 
 .medisync__feedback_client p {
     font-weight: 400;
-    font-size: 22px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 36px;
     text-align: center;
     color: #1B1A1A;
-    padding: 40px 40px 10px 40px;
+    padding: 70px 40px 50px 40px;
 }
 
-.medisync__feedback_client-Name {
-    padding-bottom: 30px;
+.medisync__feedback_client-image {
+    display: flex;
+    justify-content: center;
+}
+
+.medisync__feedback_client-image img {
+    position: absolute;
+    top: 270px;
 }
 
 .medisync__feedback_client-Name h1 {
     font-weight: 500;
     font-size: 20px;
-    line-height: 30px;
-    text-align: center;
+    text-align: right;
     color: #000000;
+    padding-right: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.medisync__feedback_client-Name p {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: right;
+    color: #436CDF;
+    padding-right: 50px; 
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
 }
 
 @media screen and (max-width: 1050px) {
@@ -55,7 +80,6 @@
     }
 
     .medisync__feedback {
-        padding: 4rem 6rem;
     }
 }
 
@@ -64,36 +88,109 @@
         margin: 0 0.5rem;
     }
 
-    .medisync__feedback {
-        padding: 4rem 4rem;
+    .medisync__feedback h1 {
+        padding: 0 0 20px 0;
+        font-size: 30px;
+    }
+
+    .arrow img {
+        width: 30px;
+    }
+
+    .medisync__feedback_client {
+        width: 400px;
+    }
+    
+    .medisync__feedback_client p {
+        font-size: 18px;
+        line-height: 30px;
+        padding: 50px 40px 50px 40px;
+    }
+
+    .medisync__feedback_client-image img {
+        top: 270px;
+    }
+
+    .medisync__feedback_client-Name h1 {
+        font-weight: 500;
+        font-size: 18px;
+        text-align: right;
+        color: #000000;
+        padding-right: 10px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    
+    .medisync__feedback_client-Name p {
+        font-weight: 700;
+        font-size: 18px;
+        text-align: right;
+        color: #436CDF;
+        padding-right: 10px; 
+        padding-top: 0;
+        padding-bottom: 30px;
+        margin-top: 0;
+    }
+
+    .medisync__feedback_client-image img {
+        position: absolute;
+        top: 320px;
     }
 }
 
 @media screen and (max-width: 490px) {
-    .medisync__feedback {
-        padding: 40px 20px;
+    .medisync__feedback_client {
+        margin: 0 0.5rem;
     }
 
     .medisync__feedback h1 {
-        font-size: 28px;
+        padding: 0 0 20px 0;
+        font-size: 22px;
     }
 
-    .medisync__feedback_client h1 {
-        font-size: 18px;
+    .arrow img {
+        width: 20px;
     }
 
-    .medisync__feedback_client p{
-        font-size: 16px;
+    .medisync__feedback_client {
+        width: 250px;
+    }
+    
+    .medisync__feedback_client p {
+        font-size: 15px;
         line-height: 22px;
+        padding: 30px 40px 20px 40px;
+    }
+
+    .medisync__feedback_client-image img {
+        top: 270px;
     }
 
     .medisync__feedback_client-Name h1 {
-        font-size: 18px;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: right;
+        color: #000000;
+        padding-right: 10px;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
     
     .medisync__feedback_client-Name p {
-        font-size: 18px;
-        padding: 0;
+        font-weight: 700;
+        font-size: 14px;
+        text-align: right;
+        color: #436CDF;
+        padding-right: 10px; 
+        padding-top: 0;
+        padding-bottom: 30px;
+        margin-top: 0;
+    }
+
+    .medisync__feedback_client-image img {
+        position: absolute;
+        top: 270px;
+        width: 100px;
     }
     
 }

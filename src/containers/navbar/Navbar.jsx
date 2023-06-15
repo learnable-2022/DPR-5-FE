@@ -8,7 +8,6 @@ import { NavLink } from 'react-router-dom';
 const Menu = () => (
   <>
   <p><NavLink exact to="/" activeClassName="active">Home</NavLink></p>
-  {/* <p><NavLink to="/home"  activeClassName="active">Home</NavLink></p> */}
   <p><NavLink to="/about"  activeClassName="active">About</NavLink></p>
   <p><NavLink to="/demo"  activeClassName="active">Demo</NavLink></p>
   <p><NavLink to="/services"  activeClassName="active">Services</NavLink></p>

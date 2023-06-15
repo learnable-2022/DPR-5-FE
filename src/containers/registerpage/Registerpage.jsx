@@ -117,7 +117,7 @@ const Registerpage = () => {
               // (<span className="successful">{signupDetails.message}</span>) : 
               // (<span className="successful">{signupDetails.status}</span>)
               (signupDetails.status==="success") ?
-              (<Link to="/dashboard/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
               (<span className="successful">{signupDetails.message}</span>)
             }
           </form>
