@@ -3,7 +3,7 @@ import { Wallet } from '../containers';
 const ConnectWallet = () => {
   return (
     <div>
-        <div className="ConnectWallet">
+        <div className="Connect-Wallet">
           <Wallet />
         </div>
     </div>

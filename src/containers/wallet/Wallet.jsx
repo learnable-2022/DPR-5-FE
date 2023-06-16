@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./wallet.css";
+import { Link } from 'react-router-dom'
+import Logo from '../../assets/medisync-logo.png'
 
 
 const getWallet = () => window.ethereum;
@@ -25,9 +27,18 @@ const Wallet = () => {
     }
   };
   return (
-    <div className="wallet_details" >
-      <button className="connect" onClick={Wallet}>
-        Connect Wallet</button>
+    <div className="medisync__wallet_details" >
+      <img src={Logo} alt="Logo"/>
+
+      <div className="medisync__wallet_detail">
+        <h2>
+          To activate your account, you have to click the 
+          button below to connect your Wallet address Or create a wallet account if you don’t have one
+        </h2>
+        <Link to='/web3'><p>What is a Wallet?</p></Link>
+        <button className="connect" onClick={Wallet}>
+          Connect Wallet</button>
+      </div>
     </div>
   );
 };

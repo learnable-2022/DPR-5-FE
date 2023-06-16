@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './loginpage.css';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo.png';
-import Welcome from '../../assets/welcome.png';
+import Logo from '../../assets/medisync-logo.png';
+import Login from '../../assets/login.jpg';
 
 const Loginpage = () => {
   // const [email, setEmail] = useState('');
@@ -100,7 +100,7 @@ const Loginpage = () => {
           </Link>
         </div>
         <div className="medisync__loginpage-body_image">
-          <img src={Welcome} alt='Welcome'/>
+          <img src={Login} alt='Welcome'/>
         </div>
       </div>
     </div>
