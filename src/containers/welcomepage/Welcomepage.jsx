@@ -1,8 +1,8 @@
 import React from 'react'
 import './welcomepage.css'
 import { Link } from 'react-router-dom'
-import Logo from '../../assets/logo.png'
-import Welcome from '../../assets/welcome.png'
+import Logo from '../../assets/medisync-logo.png'
+import Welcome from '../../assets/welcome.jpg'
 
 const Welcomepage = () => {
   return (

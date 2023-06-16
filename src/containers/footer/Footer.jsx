@@ -2,7 +2,7 @@ import React from 'react';
 import './footer.css';
 import { Link } from 'react-router-dom'
 
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/medisync-logo.png';
 import Linkedin from '../../assets/linkedin.png';
 import Whatsapp from '../../assets/whatsapp.png';
 

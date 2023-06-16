@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './registerpage.css';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo.png';
-import Welcome from '../../assets/welcome.png';
+import Logo from '../../assets/medisync-logo.png';
+import Signup from '../../assets/signup.jpg';
 
 // import axios from 'axios';
 
@@ -104,7 +104,7 @@ const Registerpage = () => {
             <label htmlFor="email">Email</label>
               <input value={signupDetails.email} onChange={handleChange} type="email" id="email" name="email" required/>
 
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password (At least 8 Characters)</label>
               <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
 
             <label htmlFor="confirmPassword">Confirm Password</label>
@@ -117,7 +117,7 @@ const Registerpage = () => {
               // (<span className="successful">{signupDetails.message}</span>) : 
               // (<span className="successful">{signupDetails.status}</span>)
               (signupDetails.status==="success") ?
-              (<Link to="/dashboard/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
               (<span className="successful">{signupDetails.message}</span>)
             }
           </form>
@@ -127,7 +127,7 @@ const Registerpage = () => {
           {/* {error && <p>{error}</p>} */}
         </div>
         <div className="medisync__registerpage-body_image">
-          <img src={Welcome} alt='Welcome'/>
+          <img src={Signup} alt='Welcome'/>
         </div>
       </div>
       
