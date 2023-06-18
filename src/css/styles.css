@@ -41,7 +41,7 @@ li {
   list-style: none;
 }
 
-/* a {  
+.dashboard_link {  
   display: flex;
   gap: 10px;
   align-items: center;
@@ -54,12 +54,12 @@ li {
   transition: 0.3s ease-in-out;
 }
 
-a:hover {
+.dashboard_link:hover {
   color: white;
-  background-color: #460570;
+  background-color: #436CDF;
   width: 90%;
   border-radius: 10px;
-} */
+}
 
 section {
   width: 80%;
@@ -72,20 +72,20 @@ section {
   padding: 0 50px;
   height: 100px;
   width: 100%;
-  background: linear-gradient(0deg, #500680, #500680);
+  background: #436CDF;
   color: white;
   border-bottom: 1px solid gray;
 }
 
-/* button {
-  border: 1px solid  #460570;
+button {
+  border: 1px solid  #436CDF;
   border-radius: 5px;
   padding: 10px;
-  background-color:  #460570;
+  background-color:  #436CDF;
   color: white;
   font-size: 12px;
   margin-right: 20px;
-} */
+}
 
 span {
   display: flex;
@@ -142,14 +142,14 @@ select {
   margin-bottom: 50px;
 }
 
-/* input {
+input {
   height: 40px;
   width: 200px;
   border-radius: 5px;
   outline: none;
   border: 1px solid lightgrey;
-  padding: 0 10px 0 20px;
-} */
+  padding: 0;
+}
 
 .first_section,
 .second_section {
@@ -240,7 +240,7 @@ select {
 
 .modal_body input {
   width: 100%;
-  padding: 25px;
+  padding: 5px 20px;
 }
 
 .calendar{
@@ -261,8 +261,8 @@ select {
 
 .close_button {
   background-color: white;
-  border: 1px solid #460570;
-  color: #460570;
+  border: 1px solid #436CDF;
+  color: #436CDF;
   font-weight: 600;
 }
 

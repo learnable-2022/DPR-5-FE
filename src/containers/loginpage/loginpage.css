@@ -55,6 +55,7 @@ body {
     margin-bottom: 10px;
 
     font-weight: 400;
+    padding-left: 10px;
     font-size: 14px;
     line-height: 28px;
     text-align: left;
@@ -79,6 +80,7 @@ body {
     text-align: center;
     color: #F1E6F8;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .login-form button:hover {
@@ -88,10 +90,18 @@ body {
 }
 
 .medisync__loginpage-login {
+    display: flex;
+    gap: 5px;
     background: none;
     color: #6b6b6b;
     border: none;
     margin: 5px 0;
+}
+
+.medisync__loginpage-login span {
+    font-weight: 600;
+    color: #7209B7;
+    cursor: pointer;
 }
 
 .medisync__loginpage-body_image {

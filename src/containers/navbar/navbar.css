@@ -24,6 +24,7 @@
 
 .medisync__navbar-left img {
     position: relative;
+    width: 118.87px;
     height: 28.07px;
     padding-right: 100px;
 }
@@ -83,7 +84,7 @@
     color: #460570;
     background: #cecece;
     box-shadow: 0 0 2px #1B1A1A;
-    transition: 1s ease-in-out;
+    transition: 1s;
 }
 
 .medisync__navbar-menu {

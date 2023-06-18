@@ -3,8 +3,8 @@ import logo from "../images/logo.png";
 import patient from "../images/patient.png";
 import view_medical_record from "../../src/images/upload.png";
 import medical from "../images/view.png";
-import history from "../images/replay.png";
-import delete_item from "../images/delete.png";
+import access from "../images/access.png";
+import logout from "../images/logout.png";
 import "../css/styles.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
@@ -14,21 +14,21 @@ const SideBar = () => {
       <img className="logo" src={logo} alt="" />
       <img className="patient_image" src={patient} alt="" />
       <ul>
-        <CustomLink to="/dashboard/medicalrecords">
+        <CustomLink to="/dashboard/medicalrecords" className="dashboard_link">
           <img src={view_medical_record} alt="" />
           <p>View Medical Record</p>
         </CustomLink>
-        <CustomLink to="/dashboard/medical">
+        <CustomLink to="/dashboard/medical" className="dashboard_link">
           <img src={medical} alt="" />
-          <p>View Other Records</p>
+          <p>My Records</p>
         </CustomLink>
-        <CustomLink to="/dashboard">
-          <img src={history} alt="" />
-          <p>Record History</p>
+        <CustomLink to="/dashboard/manageaccess" className="dashboard_link">
+          <img src={access} alt="" />
+          <p>Manage Access</p>
         </CustomLink>
-        <CustomLink to="/dashboard">
-          <img src={delete_item} alt="" />
-          <p>Deleted Items</p>
+        <CustomLink to="/" className="dashboard_link">
+          <img src={logout} alt="" />
+          <p>Logout</p>
         </CustomLink>
       </ul>
     </div>
