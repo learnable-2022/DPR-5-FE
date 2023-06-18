@@ -28,11 +28,8 @@ const App = () => {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/connectwallet" element={<ConnectWallet />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route
-              path="/dashboard/connectwallet"
-              element={<ConnectWallet />}
-            />
             <Route
               path="/dashboard/medicalrecords"
               element={<ViewMedicalRecords />}

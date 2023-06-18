@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./registerpage.css";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
-import Welcome from "../../assets/welcome.png";
-import { signUp } from "../../api/auth";
+import './registerpage.css';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/medisync-logo.png';
+import Signup from '../../assets/signup.jpg';
 
 // import axios from 'axios';
 
@@ -123,15 +122,8 @@ const Registerpage = () => {
                 required
               />
 
-              <label htmlFor="password">Password</label>
-              <input
-                value={signupDetails.password}
-                onChange={handleChange}
-                type="password"
-                id="password"
-                name="password"
-                required
-              />
+            <label htmlFor="password">Password (At least 8 Characters)</label>
+              <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
 
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input
@@ -144,30 +136,23 @@ const Registerpage = () => {
               />
               <button type="submit">Sign Up</button>
 
-              {/* <span className="successful">{signupDetails.message}</span> */}
-              {
-                // (signupDetails.status==="fail") ?
-                // (<span className="successful">{signupDetails.message}</span>) :
-                // (<span className="successful">{signupDetails.status}</span>)
-                signupDetails.status === "success" ? (
-                  <Link to="/dashboard/connectwallet">
-                    <button type="submit">Connect Wallet</button>
-                  </Link>
-                ) : (
-                  <span className="successful">{signupDetails.message}</span>
-                )
-              }
-            </form>
-            <Link to="/login">
-              <button className="medisync__registerpage-login">
-                Already have an Account? <span>LOGIN</span>
-              </button>
-            </Link>
-            {/* {error && <p>{error}</p>} */}
-          </div>
-          <div className="medisync__registerpage-body_image">
-            <img src={Welcome} alt="Welcome" />
-          </div>
+            {/* <span className="successful">{signupDetails.message}</span> */}
+            {
+              // (signupDetails.status==="fail") ? 
+              // (<span className="successful">{signupDetails.message}</span>) : 
+              // (<span className="successful">{signupDetails.status}</span>)
+              (signupDetails.status==="success") ?
+              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              (<span className="successful">{signupDetails.message}</span>)
+            }
+          </form>
+          <Link to="/login">
+            <button className='medisync__registerpage-login'>Already have an Account? Log in</button>
+          </Link>
+          {/* {error && <p>{error}</p>} */}
+        </div>
+        <div className="medisync__registerpage-body_image">
+          <img src={Signup} alt='Welcome'/>
         </div>
       </div>
     </div>

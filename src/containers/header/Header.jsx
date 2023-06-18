@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './header.css';
-import Image1 from '../../assets/image1.png'
+import Image2 from '../../assets/image2.png'
 
 const Header = () => {
   return (
@@ -15,7 +15,7 @@ const Header = () => {
         </div>
 
         <div className="medisync__header-image">
-          <img src={Image1} alt="Doctor and Patient" />
+          <img src={Image2} alt="Doctor and Patient" />
         </div>
     </div>
   )

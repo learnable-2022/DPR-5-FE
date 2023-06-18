@@ -18,7 +18,7 @@
 }
 
 .medisync__demo_bg p {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 22px;
     max-width: 950px;
     margin: 0 auto;
@@ -40,7 +40,7 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 32px;
-    background: #460570;
+    background: #436CDF;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -67,7 +67,7 @@
     }
 
     .medisync__demo_bg p {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 26px;
         padding: 0 0 20px 0;
     }

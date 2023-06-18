@@ -1,5 +1,5 @@
 .medisync__footer {
-    background: #F1E6F8;
+    background: #E8EDFB;
     font-family: var(--font-family);
     padding: 4rem 4rem 1rem 4rem;
 }
@@ -64,12 +64,20 @@
 }
 
 @media screen and (max-width: 800px) {
+    .medisync__footer {
+        padding: 20px 10px;
+    }
+    
     .medisync__footer_sections {
         flex-wrap: wrap;
     }
 
+    .medisync__footer_sections_contact {
+        padding-right: 100px;
+    }
+
     .medisync__footer_sections_section {
-        padding: 10px 0;
+        padding: 10px 30px 10px 25px;
     }
 
     .medisync__footer_sections_contact-logo {

@@ -14,3 +14,4 @@ export { default as Navbar } from './navbar/Navbar';
 export { default as Welcomepage } from './welcomepage/Welcomepage';
 export { default as Registerpage } from './registerpage/Registerpage';
 export { default as Loginpage } from './loginpage/Loginpage';
+export { default as Wallet } from './wallet/Wallet';
