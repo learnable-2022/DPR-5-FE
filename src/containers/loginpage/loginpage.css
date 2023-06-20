@@ -54,6 +54,7 @@ body {
     border-radius: 8px;
     margin-bottom: 10px;
     font-weight: 400;
+    padding-left: 10px;
     font-size: 14px;
     line-height: 28px;
     text-align: left;
@@ -81,6 +82,7 @@ body {
     text-align: center;
     color: #F1E6F8;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .password input {
@@ -130,6 +132,12 @@ body {
 .medisync__loginpage-login-signup {
     color: #436CDF;
     padding-left: 10px;
+}
+
+.medisync__loginpage-login span {
+    font-weight: 600;
+    color: #7209B7;
+    cursor: pointer;
 }
 
 .medisync__loginpage-body_image {

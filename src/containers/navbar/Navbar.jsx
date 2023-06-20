@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../../assets/medisync-logo.png';
+import logo from '../../assets/logo.png';
 import './navbar.css';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -14,8 +14,10 @@ const Menu = () => (
   <p><NavLink to="/services"  activeClassName="active">Services</NavLink></p>
   </>
 )
+)
 
 const Navbar = () => {
+const [toggleMenu, setToggleMenu] = useState(false);
 const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -39,6 +41,10 @@ const [toggleMenu, setToggleMenu] = useState(false);
           ? <RiCloseLine color="#000000" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="#000000" size={27} onClick={() => setToggleMenu(true)} />
         }
+        {toggleMenu
+          ? <RiCloseLine color="#460570" size={27} onClick={() => setToggleMenu(false)} />
+          : <RiMenu3Line color="#460570" size={27} onClick={() => setToggleMenu(true)} />
+        }
         {toggleMenu && (
           <div className="medisync__navbar-menu_container .scale-up-ver-top">
             <div className="medisync__navbar-menu_container-links">
@@ -53,6 +59,8 @@ const [toggleMenu, setToggleMenu] = useState(false);
         )}
       </div>
     </div>
+  )
+}
   )
 }
 

@@ -38,51 +38,46 @@ const Registerpage = () => {
   // };
 
   const [signupDetails, setSignupDetails] = useState({
-    firstName:"",
-    lastName:"",
-    email:"",
-    password:"",
-    confirmPassword:""
-  })
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleChange = (ev) => {
     setSignupDetails({
-      ...signupDetails,[ev.target.name]:ev.target.value
-    })
-  }
+      ...signupDetails,
+      [ev.target.name]: ev.target.value,
+    });
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const data = {
-      firstName:signupDetails.firstName,
-      lastName:signupDetails.lastName,
-      email:signupDetails.email,
-      password:signupDetails.password,
-      confirmPassword:signupDetails.confirmPassword
-    } 
 
-    fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
-      method:"POST",
-      headers:{
-        'Content-Type':'application/json',
-        'Access-Control-Allow-Origin':'*'
+    const res = await signUp(signupDetails);
+
+    fetch("https://medisync-instance.onrender.com/api/v1/user/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      body:JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-    .then((response)=>{
-      return response.json()
-    })
-    .then((data)=>{
-      // console.log(data)
-      setSignupDetails(data)
-    })
-    .catch((err)=>{
-      console.log("Not sent", err)
-    })
-  }
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // console.log(data)
+        setSignupDetails(data);
+      })
+      .catch((err) => {
+        console.log("Not sent", err);
+      });
+  };
 
-  const userid = localStorage.setItem("id",signupDetails.data)
+  const userid = localStorage.setItem("id", signupDetails.data);
   // console.log(userid)
 //To toggle the Paasword visibility
   const [showPassword, setShowPassword] = useState(false);
@@ -151,52 +146,49 @@ const Registerpage = () => {
           <img src={Signup} alt='Welcome'/>
         </div>
       </div>
-      
-    </div>
-      
     </div>
   );
 
-// const Registerpage = (props) => {
-//   const [email, setEmail] = useState('');
-//   const [pass, setPass] = useState('');
-//   const [name, setName] = useState('');
+  // const Registerpage = (props) => {
+  //   const [email, setEmail] = useState('');
+  //   const [pass, setPass] = useState('');
+  //   const [name, setName] = useState('');
 
-//   const handleSubmit = (e) => {
-//       e.preventDefault();
-//       console.log(email);
-//   }
+  //   const handleSubmit = (e) => {
+  //       e.preventDefault();
+  //       console.log(email);
+  //   }
 
-//   return (
-//     <div className="medisync__registerpage">
-//       <div className="medisync__registerpage-logo">
-//         <img src={Logo} alt="Logo"/>
-//       </div>
-//       <div className="medisync__registerpage-body">
-//         <div className="medisync__registerpage-body_form">
-//           <h1>Get Started</h1>
-//           <p>Fill the form below to sign up</p>
-//           <form className='register-form' onSubmit={handleSubmit}>
-//             <label htmlFor="name">Full Name</label>
-//               <input value={name} onChange={(e) => setName(e.target.value)} type="text" id="name" name="name" />
+  //   return (
+  //     <div className="medisync__registerpage">
+  //       <div className="medisync__registerpage-logo">
+  //         <img src={Logo} alt="Logo"/>
+  //       </div>
+  //       <div className="medisync__registerpage-body">
+  //         <div className="medisync__registerpage-body_form">
+  //           <h1>Get Started</h1>
+  //           <p>Fill the form below to sign up</p>
+  //           <form className='register-form' onSubmit={handleSubmit}>
+  //             <label htmlFor="name">Full Name</label>
+  //               <input value={name} onChange={(e) => setName(e.target.value)} type="text" id="name" name="name" />
 
-//             <label htmlFor="email">Email</label>
-//               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" />
+  //             <label htmlFor="email">Email</label>
+  //               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" />
 
-//             <label htmlFor="password">Password</label>
-//               <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" id="password" name="password" />
-//             <button type="submit">Sign Up</button>
-//           </form>
-//           <Link to="/login">
-//             <button className='medisync__registerpage-login'>Already have an Account? Log in</button>
-//           </Link>
-//         </div>
-//         <div className="medisync__registerpage-body_image">
-//           <img src={Welcome} alt='Welcome'/>
-//         </div>
-//       </div>
-//     </div>
-//   )
+  //             <label htmlFor="password">Password</label>
+  //               <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" id="password" name="password" />
+  //             <button type="submit">Sign Up</button>
+  //           </form>
+  //           <Link to="/login">
+  //             <button className='medisync__registerpage-login'>Already have an Account? Log in</button>
+  //           </Link>
+  //         </div>
+  //         <div className="medisync__registerpage-body_image">
+  //           <img src={Welcome} alt='Welcome'/>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
 };
 
-export default Registerpage
+export default Registerpage;

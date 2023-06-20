@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+
 import './loginpage.css';
 import { Link } from 'react-router-dom';
 import Login from '../../assets/login.jpg';
 import Navbar from '../navbar/Navbar'
+import { useSnapshot } from "valtio";
+import state from "../../store/Index";
 
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 
@@ -19,53 +22,54 @@ const Loginpage = () => {
   //       email,
   //       password
   //     });
-      
+
   //     // Handle the successful login response
   //     console.log(response.data);
   //   } catch (error) {
   //     // Handle the error
   //     setError('Invalid email or password');
   //   }
+
   // };
 
   const [loginDetails, setLoginDetails] = useState({
-    email:"",
-    password:"",
-  })
+    email: "",
+    password: "",
+  });
+
+  const [profile, setProfile] = useState();
+
+  const snap = useSnapshot(state);
 
   const handleChange = (ev) => {
     setLoginDetails({
-      ...loginDetails,[ev.target.name]:ev.target.value
-    })
-  }
-
+      ...loginDetails,
+      [ev.target.name]: ev.target.value,
+    });
+  };
+  console.log({ loginDetails });
+  // console.log(profile);
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const data = {
-      email:loginDetails.email,
-      password:loginDetails.password
-    } 
 
-    fetch('https://medisync-instance.onrender.com/api/v1/user/login',{
-      method:"POST",
-      headers:{
-        'Content-Type':'application/json',
-        'Access-Control-Allow-Origin':'*'
+    fetch("https://medisync-instance.onrender.com/api/v1/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      body:JSON.stringify(data)
+      body: JSON.stringify(loginDetails),
     })
-    .then((response)=>{
-      return response.json()
-    })
-    .then((data)=>{
-      // console.log(data)
-      setLoginDetails(data)
-    })
-    .catch((err)=>{
-      console.log("Not sent", err)
-    })
-  }
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => {
+        snap.userData = res.data.user;
+      })
+      .catch((err) => {
+        console.log("Not sent", err);
+      });
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -84,14 +88,20 @@ const Loginpage = () => {
       {/* <div className="medisync__loginpage-logo">
         <Link to ="/"><img src={Logo} alt="Logo"/></Link>
       </div> */}
-      
       <div className="medisync__loginpage-body">
         <div className="medisync__loginpage-body_form">
           <h1>Login</h1>
-          
-          <form className='login-form' onSubmit={handleSubmit}>
+
+          <form className="login-form" onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
-              <input value={loginDetails.email} onChange={handleChange} type="email" id="email" name="email" required/>
+            <input
+              value={loginDetails.email}
+              onChange={handleChange}
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
 
             <label htmlFor="password">Password</label>
               <div className="password"><input value={loginDetails.password} onChange={handleChange} type={showPassword ? 'text' : 'password'} id="password" name="password" required className="button"/>
@@ -101,12 +111,16 @@ const Loginpage = () => {
             <button type="submit" >Login</button>
 
             {
-              // (signupDetails.status==="fail") ? 
-              // (<span className="successful">{signupDetails.message}</span>) : 
+              // (signupDetails.status==="fail") ?
+              // (<span className="successful">{signupDetails.message}</span>) :
               // (<span className="successful">{signupDetails.status}</span>)
-              (loginDetails.status==="success") ?
-              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
-              (<span className="successful">{loginDetails.message}</span>)
+              loginDetails.status === "success" ? (
+                <Link to="/dashboard/connectwallet">
+                  <button type="submit">Connect Wallet</button>
+                </Link>
+              ) : (
+                <span className="successful">{loginDetails.message}</span>
+              )
             }
           </form>
           <Link to="/register">
@@ -117,7 +131,7 @@ const Loginpage = () => {
           </Link>
         </div>
         <div className="medisync__loginpage-body_image">
-          <img src={Login} alt='Welcome'/>
+          <img src={Welcome} alt="Welcome" />
         </div>
       </div>
     </div>
@@ -142,9 +156,9 @@ const Loginpage = () => {
 //       <div className="medisync__loginpage-body">
 //         <div className="medisync__loginpage-body_form">
 //           <h1>Login</h1>
-          
+
 //           <form className='login-form' onSubmit={handleSubmit}>
-            
+
 //             <label htmlFor="email">Email</label>
 //               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" />
 
@@ -164,4 +178,4 @@ const Loginpage = () => {
 //   )
 // }
 
-export default Loginpage
+export default Loginpage;
