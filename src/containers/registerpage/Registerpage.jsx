@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import './registerpage.css';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/medisync-logo.png';
 import Signup from '../../assets/signup.jpg';
+import Navbar from '../navbar/Navbar'
+
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 
 // import axios from 'axios';
 
@@ -77,64 +79,50 @@ const Registerpage = () => {
 
   const userid = localStorage.setItem("id", signupDetails.data);
   // console.log(userid)
+//To toggle the Paasword visibility
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div>
+      <Navbar />
       <div className="medisync__registerpage">
-        <div className="medisync__registerpage-logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
-        </div>
-        <div className="medisync__registerpage-body">
-          <div className="medisync__registerpage-body_form">
-            <h1>Get Started</h1>
-            <p>Fill the form below to sign up</p>
+      {/* <div className="medisync__registerpage-logo">
+        <Link to="/"><img src={Logo} alt="Logo"/></Link>
+      </div> */}
+      <div className="medisync__registerpage-body">
+        <div className="medisync__registerpage-body_form">
+          <h1>Get Started</h1>
+          <p>Fill the form below to sign up</p>
+          
+          <form className='register-form' onSubmit={handleSubmit}>
+            <label htmlFor="firstName">First Name</label>
+              <input value={signupDetails.firstName} onChange={handleChange} type="text" id="firstName" name="firstName" required/>
 
-            <form className="register-form" onSubmit={handleSubmit}>
-              <label htmlFor="firstName">First Name</label>
-              <input
-                value={signupDetails.firstName}
-                onChange={handleChange}
-                type="text"
-                id="firstName"
-                name="firstName"
-                required
-              />
+            <label htmlFor="LastName">Last Name</label>
+              <input value={signupDetails.lastName} onChange={handleChange} type="text" id="lastName" name="lastName" required/>
 
-              <label htmlFor="LastName">Last Name</label>
-              <input
-                value={signupDetails.lastName}
-                onChange={handleChange}
-                type="text"
-                id="lastName"
-                name="lastName"
-                required
-              />
-
-              <label htmlFor="email">Email</label>
-              <input
-                value={signupDetails.email}
-                onChange={handleChange}
-                type="email"
-                id="email"
-                name="email"
-                required
-              />
+            <label htmlFor="email">Email</label>
+              <input value={signupDetails.email} onChange={handleChange} type="email" id="email" name="email" required/>
 
             <label htmlFor="password">Password (At least 8 Characters)</label>
-              <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
+              <div className="password"><input value={signupDetails.password}
+              type={showPassword ? 'text' : 'password'}
+              onChange={handleChange} id="password" name="password" required/>
+              <button onClick={togglePasswordVisibility}>
+                {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
+              </button>
+              </div>
 
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                value={signupDetails.confirmPassword}
-                onChange={handleChange}
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                required
-              />
-              <button type="submit">Sign Up</button>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+              <div className="password"><input value={signupDetails.confirmPassword} onChange={handleChange} type={showPassword ? 'text' : 'password'} id="confirmPassword" name="confirmPassword" required/>
+              <button onClick={togglePasswordVisibility}>
+                {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
+              </button></div>
+            <button type="submit" >Sign Up</button>
 
             {/* <span className="successful">{signupDetails.message}</span> */}
             {
@@ -147,7 +135,10 @@ const Registerpage = () => {
             }
           </form>
           <Link to="/login">
-            <button className='medisync__registerpage-login'>Already have an Account? Log in</button>
+            <div className='medisync__registerpage-login'>
+              <p>Already have an Account?</p>
+              <p className="medisync__registerpage-login-signup">Log in</p>
+            </div>
           </Link>
           {/* {error && <p>{error}</p>} */}
         </div>

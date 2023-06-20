@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import DashboardLayout from "./components/DashboardLayout";
 import ViewMedicalRecords from "./pages/ViewMedicalRecords";
 import ViewOtherRecords from "./pages/ViewOtherRecords";
+import ConnectWalletDr from "./pages/ConnectWalletDr";
 import ManageAccess from "./pages/ManageAccess";
 import ConnectWallet from "./components/ConnectWalletBtn";
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/connectwallet" element={<ConnectWallet />} />
+          <Route path="/connectwalletdr" element={<ConnectWalletDr />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route
               path="/dashboard/medicalrecords"

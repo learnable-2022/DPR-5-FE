@@ -10,6 +10,7 @@ const Menu = () => (
   <p><NavLink exact to="/" activeClassName="active">Home</NavLink></p>
   <p><NavLink to="/about"  activeClassName="active">About</NavLink></p>
   <p><NavLink to="/demo"  activeClassName="active">Demo</NavLink></p>
+  <p><NavLink to="/connectwalletdr"  activeClassName="active">Patient's Record</NavLink></p>
   <p><NavLink to="/services"  activeClassName="active">Services</NavLink></p>
   </>
 )
@@ -31,14 +32,14 @@ const [toggleMenu, setToggleMenu] = useState(false);
         </div>
 
         <div className="medisync__navbar-right">
-          <Link to="/welcome"><button type="button">Get Started</button></Link>
-          <Link to="/welcome"><button type="button">Get Started</button></Link>
+          <Link to="/register" activeClassName="b-active"><button className="signup-buttton" type="button">Signup</button></Link>
+          <Link to="/login" activeClassName="b-active"><button type="button">Login</button></Link>
         </div>
       </div>
       <div className="medisync__navbar-menu">
         {toggleMenu
-          ? <RiCloseLine color="#460570" size={27} onClick={() => setToggleMenu(false)} />
-          : <RiMenu3Line color="#460570" size={27} onClick={() => setToggleMenu(true)} />
+          ? <RiCloseLine color="#000000" size={27} onClick={() => setToggleMenu(false)} />
+          : <RiMenu3Line color="#000000" size={27} onClick={() => setToggleMenu(true)} />
         }
         {toggleMenu
           ? <RiCloseLine color="#460570" size={27} onClick={() => setToggleMenu(false)} />
@@ -49,8 +50,9 @@ const [toggleMenu, setToggleMenu] = useState(false);
             <div className="medisync__navbar-menu_container-links">
               <Menu />
               <div className="medisync__navbar-menu_container-links-wallet">
-                <Link to="/welcome"><button type="button">Get Started</button></Link>
-                <Link to="/welcome"><button type="button">Get Started</button></Link>
+                {/* <Link to="/welcome"><button type="button">Get Started</button></Link> */}
+                <Link to="/register" activeClassName="b-active"><button className="signup-buttton" type="button">Signup</button></Link>
+                <Link to="/login" activeClassName="b-active"><button type="button">Login</button></Link>
               </div>
             </div>
           </div>
@@ -62,5 +64,4 @@ const [toggleMenu, setToggleMenu] = useState(false);
   )
 }
 
-export default Navbar
 export default Navbar

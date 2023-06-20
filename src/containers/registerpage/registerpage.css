@@ -70,11 +70,6 @@ body {
     padding-left: 15px;
 }
 
-.register-form input:hover {
-    border: 2px solid #ffffff;
-    transition: 1s;
-}
-
 .register-form button {
     width: 360px;
     height: 40px;
@@ -91,18 +86,60 @@ body {
     cursor: pointer;
 }
 
+.password {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.password input {
+    width: 300px;
+    height: 35px;
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.password button {
+    background: none;
+    color: #4e4e4e;
+    width: 40px;
+    height:41px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border: 2px solid #436CDF;
+    border-left: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 0;
+}
+
 .register-form button:hover {
     background: #c9c9c9;
     color: #383838;
 }
 
+.password button:hover {
+    background: none;
+    color: #4e4e4e;
+}
+
 .medisync__registerpage-login {
     display: flex;
-    gap: 5px;
     background: none;
     color: #6b6b6b;
     border: none;
-    margin: 5px 0;
+    margin: 10px 0;
+}
+
+.medisync__registerpage-login-signup {
+    color: #436CDF;
+    padding-left: 10px;
 }
 
 .medisync__registerpage-login span {

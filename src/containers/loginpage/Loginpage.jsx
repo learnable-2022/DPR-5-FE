@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import "./loginpage.css";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
-import Welcome from "../../assets/welcome.png";
-import state from "../../store/Index";
+
+import './loginpage.css';
+import { Link } from 'react-router-dom';
+import Login from '../../assets/login.jpg';
+import Navbar from '../navbar/Navbar'
 import { useSnapshot } from "valtio";
+import state from "../../store/Index";
+
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 
 const Loginpage = () => {
   // const [email, setEmail] = useState('');
@@ -68,17 +71,23 @@ const Loginpage = () => {
       });
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   // I cmmented this off because it was affecting the Dashboard page
   //  const userid = localStorage.setItem("id",loginDetails.data)
   // // console.log(userid)
 
   return (
+    <>
+    <Navbar />
     <div className="medisync__loginpage">
-      <div className="medisync__loginpage-logo">
-        <Link to="/">
-          <img src={Logo} alt="Logo" />
-        </Link>
-      </div>
+      {/* <div className="medisync__loginpage-logo">
+        <Link to ="/"><img src={Logo} alt="Logo"/></Link>
+      </div> */}
       <div className="medisync__loginpage-body">
         <div className="medisync__loginpage-body_form">
           <h1>Login</h1>
@@ -95,15 +104,11 @@ const Loginpage = () => {
             />
 
             <label htmlFor="password">Password</label>
-            <input
-              value={loginDetails.password}
-              onChange={handleChange}
-              type="password"
-              id="password"
-              name="password"
-              required
-            />
-            <button type="submit">Login</button>
+              <div className="password"><input value={loginDetails.password} onChange={handleChange} type={showPassword ? 'text' : 'password'} id="password" name="password" required className="button"/>
+              <button onClick={togglePasswordVisibility}>
+                {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
+              </button></div>
+            <button type="submit" >Login</button>
 
             {
               // (signupDetails.status==="fail") ?
@@ -119,9 +124,10 @@ const Loginpage = () => {
             }
           </form>
           <Link to="/register">
-            <button className="medisync__loginpage-login">
-              Don’t have an account? <span>SIGN UP</span>
-            </button>
+            <div className='medisync__loginpage-login'>
+              <p>Don’t have an account?</p>
+              <p className="medisync__loginpage-login-signup">Sign up</p>
+            </div>
           </Link>
         </div>
         <div className="medisync__loginpage-body_image">
@@ -129,6 +135,7 @@ const Loginpage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
