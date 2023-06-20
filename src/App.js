@@ -12,6 +12,7 @@ import DashboardLayout from "./components/DashboardLayout";
 import ConnectWallet from "./pages/ConnectWallet";
 import ViewMedicalRecords from "./pages/ViewMedicalRecords";
 import ViewOtherRecords from "./pages/ViewOtherRecords";
+import ConnectWalletDr from "./pages/ConnectWalletDr";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/connectwallet" element={<ConnectWallet />} />
+          <Route path="/connectwalletdr" element={<ConnectWalletDr />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             
             <Route

@@ -59,7 +59,7 @@
 .medisync__navbar-left img {
     position: relative;
     width: auto;
-    height: 40px;
+    height: 28px;
     padding-right: 100px;
 }
 
@@ -74,7 +74,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
-    padding-left: 56px;
+    padding-left: 40px;
     cursor: pointer;
 }
 
@@ -100,7 +100,8 @@
 
 .medisync__navbar-right button,
 .medisync__navbar-menu_container-links-wallet button {
-    padding: 10px 55px;
+    padding: 5px 40px;
+    margin-left: 10px;
     color: #fff;
     font-family: var(--font-family);
     font-style: normal;
@@ -108,7 +109,7 @@
     font-size: 16px;
     line-height: 32px;
     background: #436CDF;
-    border-radius: 8px;
+    border-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -116,8 +117,7 @@
 
 .medisync__navbar-right button:hover,
 .medisync__navbar-menu_container-links-wallet button:hover {
-    color: #436CDF;
-    background: #cecece;
+    background: #179d74;
     box-shadow: 0 0 2px #1B1A1A;
     transition: 1s;
 }
@@ -162,8 +162,14 @@
 }
 
 .active {
-    color: #436CDF;
+    color: #179d74;
     font-weight: 700;
+}
+
+.b-active {
+    color: #436CDF;
+    background: #cecece;
+    box-shadow: 0 0 2px #1B1A1A;
 }
 
 @media screen and (max-width: 1050px) {
@@ -191,5 +197,14 @@
 
     .medisync__navbar-menu_container-links-wallet {
         display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .medisync__navbar-menu_container-links-wallet button {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 10px;
     }
 }

@@ -16,11 +16,17 @@
     padding: 0 30px 0 60px;
 }
 
+.medisync__header-content:hover {
+    background: #179d74;
+    transition: 1s;
+}
+
 .medisync__header-content h1 {
     font-weight: 500;
     font-size: 48px;
     line-height: 72px;
-    color: #FFFFFF;    
+    color: #FFFFFF;
+    cursor:default;   
 }
 
 .medisync__header-content p {
@@ -29,6 +35,7 @@
     line-height: 28px;
     color: #FFFFFF;
     margin: 0 90px 0 0;
+    cursor: default;
 }
 
 .medisync__header-content__demo button {
@@ -42,11 +49,11 @@
     outline: none;
     background: #FFFFFF;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .medisync__header-content__demo button:hover {
-    color: #313131;
-    background: #dddddd;
+    color: #179d74;
     transition: 1s;
 }
 
