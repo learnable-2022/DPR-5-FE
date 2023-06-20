@@ -1,22 +1,20 @@
 import axios from "axios";
-import { useSnapshot } from "valtio";
-import state from "../store/Index";
+import store from "../store/Index";
 import { baseUrl } from "../utils/data";
+
+const token = localStorage.getItem("token");
 
 const request = axios.create({
   baseURL: baseUrl,
 });
 
 request.interceptors.request.use((config) => {
-  const snap = useSnapshot(state);
-  const accessToken = snap.token;
-
   const newConfig = { ...config };
 
-  if (accessToken) {
+  if (token) {
     newConfig.headers = {
       ...newConfig.headers,
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${token}`,
     };
   }
 
@@ -29,10 +27,8 @@ request.interceptors.response.use(
     return response;
   },
   async function (error) {
-    const snap = useSnapshot(state);
     if (error.response?.status === 400) {
-      console.log("error", error.response);
-      return Promise.reject(error.response);
+      return Promise.reject(error.response?.data?.message);
     }
 
     if (error.response?.status === 403) {
@@ -44,9 +40,9 @@ request.interceptors.response.use(
     // if user's token has expired or has been blacklisted
     if (error.response?.status === 401) {
       // logout
-      snap.token = "";
+      store.token = "";
     }
-    return Promise.reject(error);
+    return Promise.reject(error.response?.data?.message);
   }
 );
 

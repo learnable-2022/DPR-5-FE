@@ -1,8 +1,9 @@
 import { proxy } from "valtio";
 
-const state = proxy({
+const store = proxy({
   userData: null,
-  token: "",
+  userLoginData: "",
+  userWalletAddress: "",
 });
 
-export default state;
+export default store;

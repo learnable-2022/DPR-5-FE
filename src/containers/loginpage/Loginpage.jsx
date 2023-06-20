@@ -5,6 +5,9 @@ import Logo from "../../assets/logo.png";
 import Welcome from "../../assets/welcome.png";
 import state from "../../store/Index";
 import { useSnapshot } from "valtio";
+import { logIN } from "../../api/auth";
+import store from "../../store/Index";
+import { toast } from "react-toastify";
 
 const Loginpage = () => {
   // const [email, setEmail] = useState('');
@@ -44,28 +47,19 @@ const Loginpage = () => {
       [ev.target.name]: ev.target.value,
     });
   };
-  console.log({ loginDetails });
+  // console.log({ loginDetails });
   // console.log(profile);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    fetch("https://medisync-instance.onrender.com/api/v1/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(loginDetails),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((res) => {
-        snap.userData = res.data.user;
-      })
-      .catch((err) => {
-        console.log("Not sent", err);
-      });
+    try {
+      const res = await logIN(loginDetails);
+      console.log("loginres", res);
+      store.userLoginData = res.data.data.user;
+      console.log("details", res.data);
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   // I cmmented this off because it was affecting the Dashboard page

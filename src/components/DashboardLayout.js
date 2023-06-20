@@ -7,7 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 const DashboardLayout = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("connectwallet");
+    // navigate("/connectwallet");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

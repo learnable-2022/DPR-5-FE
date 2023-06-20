@@ -1,14 +1,13 @@
 import request from "./request";
 
 export const signUp = async (userDataObj) => {
-  try {
-    const response = await request.post(
-      "https://medisync-instance.onrender.com/api/v1/user/signup",
-      userDataObj
-    );
+  const response = await request.post("/user/signup", userDataObj);
 
-    return response;
-  } catch (error) {
-    console.error(error);
-  }
+  return response;
+};
+
+export const logIN = async () => {
+  const response = await request.post("/user/login");
+
+  return response;
 };
