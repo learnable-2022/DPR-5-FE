@@ -23,6 +23,11 @@ const Menu = () => (
       </NavLink>
     </p>
     <p>
+      <NavLink to="/connectwalletdr" activeClassName="active">
+        Patient's Record
+      </NavLink>
+    </p>
+    <p>
       <NavLink to="/services" activeClassName="active">
         Services
       </NavLink>
@@ -45,12 +50,30 @@ const Navbar = () => {
         </div>
 
         <div className="medisync__navbar-right">
-          <Link to="/welcome">
-            <button type="button">Get Started</button>
+          <Link to="/register" activeClassName="b-active">
+            <button className="signup-buttton" type="button">
+              Signup
+            </button>
+          </Link>
+          <Link to="/login" activeClassName="b-active">
+            <button type="button">Login</button>
           </Link>
         </div>
       </div>
       <div className="medisync__navbar-menu">
+        {toggleMenu ? (
+          <RiCloseLine
+            color="#000000"
+            size={27}
+            onClick={() => setToggleMenu(false)}
+          />
+        ) : (
+          <RiMenu3Line
+            color="#000000"
+            size={27}
+            onClick={() => setToggleMenu(true)}
+          />
+        )}
         {toggleMenu ? (
           <RiCloseLine
             color="#460570"
@@ -69,8 +92,14 @@ const Navbar = () => {
             <div className="medisync__navbar-menu_container-links">
               <Menu />
               <div className="medisync__navbar-menu_container-links-wallet">
-                <Link to="/welcome">
-                  <button type="button">Get Started</button>
+                {/* <Link to="/welcome"><button type="button">Get Started</button></Link> */}
+                <Link to="/register" activeClassName="b-active">
+                  <button className="signup-buttton" type="button">
+                    Signup
+                  </button>
+                </Link>
+                <Link to="/login" activeClassName="b-active">
+                  <button type="button">Login</button>
                 </Link>
               </div>
             </div>

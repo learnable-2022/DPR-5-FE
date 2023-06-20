@@ -52,88 +52,89 @@ const Registerpage = () => {
 
   // const userid = localStorage.setItem("id", signupDetails.data);
   // console.log(userid)
+//To toggle the Paasword visibility
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
-    <div className="medisync__registerpage">
-      <div className="medisync__registerpage-logo">
-        <Link to="/">
-          <img src={Logo} alt="Logo" />
-        </Link>
-      </div>
-      {/* < className="medisync__registerpage-body"> */}
-      <div className="medisync__registerpage-body_form">
-        <h1>Get Started</h1>
-        <p>Fill the form below to sign up</p>
-        <form className="register-form" onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            value={signupDetails.firstName}
-            onChange={handleChange}
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-          />
-          <label htmlFor="LastName">Last Name</label>
-          <input
-            value={signupDetails.lastName}
-            onChange={handleChange}
-            type="text"
-            id="lastName"
-            name="lastName"
-            required
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            value={signupDetails.email}
-            onChange={handleChange}
-            type="email"
-            id="email"
-            name="email"
-            required
-          />
-          <label htmlFor="password">Password (At least 8 Characters)</label>
-          <input
-            value={signupDetails.password}
-            onChange={handleChange}
-            type="password"
-            id="password"
-            name="password"
-            required
-          />
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            value={signupDetails.confirmPassword}
-            onChange={handleChange}
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            required
-          />
-          <button type="submit">Sign Up</button>
-          {/* <span className="successful">{signupDetails.message}</span> */}
-          {
-            // (signupDetails.status==="fail") ?
-            // (<span className="successful">{signupDetails.message}</span>) :
-            // (<span className="successful">{signupDetails.status}</span>)
-            signupDetails.status === "success" ? (
-              <Link to="/connectwallet">
-                <button type="submit">Connect Wallet</button>
-              </Link>
-            ) : (
-              <span className="successful">{signupDetails.message}</span>
-            )
-          }
-        </form>
-        <Link to="/login">
-          <button className="medisync__registerpage-login">
-            Already have an Account? Log in
-          </button>
-        </Link>
-        {/* {error && <p>{error}</p>} */}
-      </div>
-      <div className="medisync__registerpage-body_image">
-        <img src={Signup} alt="Welcome" />
+    <div>
+      <div className="medisync__registerpage">
+        <div className="medisync__registerpage-logo">
+          <Link to="/">
+            <img src={Logo} alt="Logo" />
+          </Link>
+        </div>
+        <div className="medisync__registerpage-body">
+          <div className="medisync__registerpage-body_form">
+            <h1>Get Started</h1>
+            <p>Fill the form below to sign up</p>
+
+            <form className="register-form" onSubmit={handleSubmit}>
+              <label htmlFor="firstName">First Name</label>
+              <input
+                value={signupDetails.firstName}
+                onChange={handleChange}
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+              />
+
+              <label htmlFor="LastName">Last Name</label>
+              <input
+                value={signupDetails.lastName}
+                onChange={handleChange}
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+              />
+
+              <label htmlFor="email">Email</label>
+              <input
+                value={signupDetails.email}
+                onChange={handleChange}
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+
+            <label htmlFor="password">Password (At least 8 Characters)</label>
+              <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
+
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                value={signupDetails.confirmPassword}
+                onChange={handleChange}
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+              <button type="submit">Sign Up</button>
+
+            {/* <span className="successful">{signupDetails.message}</span> */}
+            {
+              // (signupDetails.status==="fail") ? 
+              // (<span className="successful">{signupDetails.message}</span>) : 
+              // (<span className="successful">{signupDetails.status}</span>)
+              (signupDetails.status==="success") ?
+              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              (<span className="successful">{signupDetails.message}</span>)
+            }
+          </form>
+          <Link to="/login">
+            <button className='medisync__registerpage-login'>Already have an Account? Log in</button>
+          </Link>
+          {/* {error && <p>{error}</p>} */}
+        </div>
+        <div className="medisync__registerpage-body_image">
+          <img src={Signup} alt='Welcome'/>
+        </div>
       </div>
     </div>
   );

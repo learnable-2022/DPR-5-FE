@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import DashboardLayout from "./components/DashboardLayout";
 import ViewMedicalRecords from "./pages/ViewMedicalRecords";
 import ViewOtherRecords from "./pages/ViewOtherRecords";
+import ConnectWalletDr from "./pages/ConnectWalletDr";
 import ManageAccess from "./pages/ManageAccess";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

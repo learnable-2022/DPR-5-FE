@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+
 import "./loginpage.css";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
-import Welcome from "../../assets/welcome.png";
+import Login from "../../assets/login.jpg";
+import Navbar from "../navbar/Navbar";
+import { useSnapshot } from "valtio";
 import state from "../../store/Index";
 import { useSnapshot } from "valtio";
 import { logIN } from "../../api/auth";
@@ -62,67 +64,85 @@ const Loginpage = () => {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   // I cmmented this off because it was affecting the Dashboard page
   //  const userid = localStorage.setItem("id",loginDetails.data)
   // // console.log(userid)
 
   return (
-    <div className="medisync__loginpage">
-      <div className="medisync__loginpage-logo">
-        <Link to="/">
-          <img src={Logo} alt="Logo" />
-        </Link>
-      </div>
-      <div className="medisync__loginpage-body">
-        <div className="medisync__loginpage-body_form">
-          <h1>Login</h1>
+    <>
+      <Navbar />
+      <div className="medisync__loginpage">
+        {/* <div className="medisync__loginpage-logo">
+        <Link to ="/"><img src={Logo} alt="Logo"/></Link>
+      </div> */}
+        <div className="medisync__loginpage-body">
+          <div className="medisync__loginpage-body_form">
+            <h1>Login</h1>
 
-          <form className="login-form" onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <input
-              value={loginDetails.email}
-              onChange={handleChange}
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
+            <form className="login-form" onSubmit={handleSubmit}>
+              <label htmlFor="email">Email</label>
+              <input
+                value={loginDetails.email}
+                onChange={handleChange}
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
 
-            <label htmlFor="password">Password</label>
-            <input
-              value={loginDetails.password}
-              onChange={handleChange}
-              type="password"
-              id="password"
-              name="password"
-              required
-            />
-            <button type="submit">Login</button>
+              <label htmlFor="password">Password</label>
+              <div className="password">
+                <input
+                  value={loginDetails.password}
+                  onChange={handleChange}
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  required
+                  className="button"
+                />
+                <button onClick={togglePasswordVisibility}>
+                  {showPassword ? (
+                    <RiEyeOffFill size={20} />
+                  ) : (
+                    <RiEyeFill size={20} />
+                  )}
+                </button>
+              </div>
+              <button type="submit">Login</button>
 
-            {
-              // (signupDetails.status==="fail") ?
-              // (<span className="successful">{signupDetails.message}</span>) :
-              // (<span className="successful">{signupDetails.status}</span>)
-              loginDetails.status === "success" ? (
-                <Link to="/dashboard/connectwallet">
-                  <button type="submit">Connect Wallet</button>
-                </Link>
-              ) : (
-                <span className="successful">{loginDetails.message}</span>
-              )
-            }
-          </form>
-          <Link to="/register">
-            <button className="medisync__loginpage-login">
-              Don’t have an account? <span>SIGN UP</span>
-            </button>
-          </Link>
+              {
+                // (signupDetails.status==="fail") ?
+                // (<span className="successful">{signupDetails.message}</span>) :
+                // (<span className="successful">{signupDetails.status}</span>)
+                loginDetails.status === "success" ? (
+                  <Link to="/dashboard/connectwallet">
+                    <button type="submit">Connect Wallet</button>
+                  </Link>
+                ) : (
+                  <span className="successful">{loginDetails.message}</span>
+                )
+              }
+            </form>
+            <Link to="/register">
+              <div className="medisync__loginpage-login">
+                <p>Don’t have an account?</p>
+                <p className="medisync__loginpage-login-signup">Sign up</p>
+              </div>
+            </Link>
+          </div>
+          <div className="medisync__loginpage-body_image">
+            <img src={Welcome} alt="Welcome" />
+          </div>
         </div>
-        <div className="medisync__loginpage-body_image">
-          <img src={Welcome} alt="Welcome" />
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
