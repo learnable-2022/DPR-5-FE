@@ -16,7 +16,7 @@ const Menu = () => (
 )
 
 const Navbar = () => {
-const [toggleMenu, setToggleMenu] = useState(false)
+const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <div className="medisync__navbar">
@@ -35,10 +35,6 @@ const [toggleMenu, setToggleMenu] = useState(false)
         </div>
       </div>
       <div className="medisync__navbar-menu">
-        {toggleMenu
-          ? <RiCloseLine color="#000000" size={27} onClick={() => setToggleMenu(false)} />
-          : <RiMenu3Line color="#000000" size={27} onClick={() => setToggleMenu(true)} />
-        }
         {toggleMenu
           ? <RiCloseLine color="#460570" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="#460570" size={27} onClick={() => setToggleMenu(true)} />

@@ -39,12 +39,12 @@ const Registerpage = () => {
   //   }
   // };
   const navigate = useNavigate();
-  
  const[loading,setLoading] = useState(false);
   const [signupDetails, setSignupDetails] = useState({
     fullName: "",
     email: "",
-    password: ""
+    password: "",
+    confirmPassword:""
   });
 
 
@@ -70,6 +70,7 @@ const Registerpage = () => {
       fullName:signupDetails.fullName,
       email:signupDetails.email,
       password:signupDetails.password,
+      confirmPassword:signupDetails.confirmPassword
     } 
 
     fetch("https://medisync-instance.onrender.com/api/v1/user/signup", {
@@ -129,6 +130,12 @@ const Registerpage = () => {
                 {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
               </button>
               </div>
+
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <div className="password"><input value={signupDetails.confirmPassword} onChange={handleChange} type={showPassword ? 'text' : 'password'} id="confirmPassword" name="confirmPassword" required/>
+              <button onClick={togglePasswordVisibility}>
+                {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
+              </button></div>
 
             <button type="submit" onClick={openLoading} >Sign Up</button>
 
