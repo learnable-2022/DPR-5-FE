@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
 import './loginpage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import Login from '../../assets/login.jpg';
 import Navbar from '../navbar/Navbar'
 import { useSnapshot } from "valtio";
 import state from "../../store/Index";
-
+import Welcome from '../../assets/welcome.jpg';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Loginpage = () => {
   // const [email, setEmail] = useState('');
@@ -31,7 +33,9 @@ const Loginpage = () => {
   //   }
 
   // };
+  const navigate = useNavigate();
 
+  const[loading,setLoading] = useState(false);
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
@@ -41,6 +45,14 @@ const Loginpage = () => {
 
   const snap = useSnapshot(state);
 
+   // handle loading effect
+   const openLoading = () => {
+    setLoading(true)
+    }
+  
+    const closeLoading = () => {
+      setLoading(false)
+    }
   const handleChange = (ev) => {
     setLoginDetails({
       ...loginDetails,
@@ -108,16 +120,23 @@ const Loginpage = () => {
               <button onClick={togglePasswordVisibility}>
                 {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
               </button></div>
-            <button type="submit" >Login</button>
-
+            <button type="submit" onClick={openLoading} >Login</button>
+            {
+            loading ? (<Backdrop
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open onClick={closeLoading}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>) 
+            :
+            null
+            }
             {
               // (signupDetails.status==="fail") ?
               // (<span className="successful">{signupDetails.message}</span>) :
               // (<span className="successful">{signupDetails.status}</span>)
               loginDetails.status === "success" ? (
-                <Link to="/dashboard/connectwallet">
-                  <button type="submit">Connect Wallet</button>
-                </Link>
+                navigate("/dashboard/connectwallet")
               ) : (
                 <span className="successful">{loginDetails.message}</span>
               )

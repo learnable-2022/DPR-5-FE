@@ -14,11 +14,9 @@ const Menu = () => (
   <p><NavLink to="/services"  activeClassName="active">Services</NavLink></p>
   </>
 )
-)
 
 const Navbar = () => {
-const [toggleMenu, setToggleMenu] = useState(false);
-const [toggleMenu, setToggleMenu] = useState(false);
+const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
     <div className="medisync__navbar">
@@ -59,8 +57,6 @@ const [toggleMenu, setToggleMenu] = useState(false);
         )}
       </div>
     </div>
-  )
-}
   )
 }
 
