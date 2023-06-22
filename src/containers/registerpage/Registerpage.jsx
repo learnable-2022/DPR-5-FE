@@ -7,18 +7,31 @@ import { signUp } from "../../api/auth";
 import store from "../../store/Index";
 import { toast } from "react-toastify";
 import { snapshot } from "valtio";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 // import axios from 'axios';
 
 const Registerpage = () => {
   const navigate = useNavigate();
+
+  const [loading,setLoading] = useState(false);
   const [signupDetails, setSignupDetails] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    password: ""
   });
+
+
+   // handle loading effect
+   const openLoading = () => {
+    setLoading(true)
+    }
+  
+    const closeLoading = () => {
+      setLoading(false)
+    }
+
 
   const handleChange = (ev) => {
     setSignupDetails({
@@ -73,25 +86,17 @@ const Registerpage = () => {
             <p>Fill the form below to sign up</p>
 
             <form className="register-form" onSubmit={handleSubmit}>
-              <label htmlFor="firstName">First Name</label>
+              <label htmlFor="fulltName">First Name</label>
               <input
-                value={signupDetails.firstName}
+                value={signupDetails.fullName}
                 onChange={handleChange}
                 type="text"
-                id="firstName"
-                name="firstName"
+                id="fullName"
+                name="fullName"
                 required
               />
 
-              <label htmlFor="LastName">Last Name</label>
-              <input
-                value={signupDetails.lastName}
-                onChange={handleChange}
-                type="text"
-                id="lastName"
-                name="lastName"
-                required
-              />
+           
 
               <label htmlFor="email">Email</label>
               <input
@@ -106,24 +111,25 @@ const Registerpage = () => {
             <label htmlFor="password">Password (At least 8 Characters)</label>
               <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
 
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                value={signupDetails.confirmPassword}
-                onChange={handleChange}
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                required
-              />
-              <button type="submit">Sign Up</button>
+              <button type="submit" onClick={openLoading}>Sign Up</button>
 
             {/* <span className="successful">{signupDetails.message}</span> */}
+            {
+            loading ? (<Backdrop
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open onClick={closeLoading}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>) 
+            :
+            null
+            }
             {
               // (signupDetails.status==="fail") ? 
               // (<span className="successful">{signupDetails.message}</span>) : 
               // (<span className="successful">{signupDetails.status}</span>)
               (signupDetails.status==="success") ?
-              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              navigate("/dashboard/connectwallet") :
               (<span className="successful">{signupDetails.message}</span>)
             }
           </form>
@@ -137,8 +143,9 @@ const Registerpage = () => {
         </div>
       </div>
     </div>
+    </div>
   );
-};
+}
 
 // const Registerpage = (props) => {
 //   const [email, setEmail] = useState("");
