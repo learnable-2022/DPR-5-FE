@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import './registerpage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Signup from '../../assets/signup.jpg';
-import Navbar from '../navbar/Navbar'
-
+import Navbar from '../navbar/Navbar';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 // import axios from 'axios';
 
@@ -36,15 +38,24 @@ const Registerpage = () => {
   //     setError('An error occurred. Please try again.'); // Handle the error here
   //   }
   // };
-
+  const navigate = useNavigate();
+  
+ const[loading,setLoading] = useState(false);
   const [signupDetails, setSignupDetails] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    password: ""
   });
 
+
+   // handle loading effect
+   const openLoading = () => {
+    setLoading(true)
+    }
+  
+    const closeLoading = () => {
+      setLoading(false)
+    }
   const handleChange = (ev) => {
     setSignupDetails({
       ...signupDetails,
@@ -55,7 +66,11 @@ const Registerpage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await signUp(signupDetails);
+    const data = {
+      fullName:signupDetails.fullName,
+      email:signupDetails.email,
+      password:signupDetails.password,
+    } 
 
     fetch("https://medisync-instance.onrender.com/api/v1/user/signup", {
       method: "POST",
@@ -99,11 +114,9 @@ const Registerpage = () => {
           <p>Fill the form below to sign up</p>
           
           <form className='register-form' onSubmit={handleSubmit}>
-            <label htmlFor="firstName">First Name</label>
-              <input value={signupDetails.firstName} onChange={handleChange} type="text" id="firstName" name="firstName" required/>
+            <label htmlFor="fullName">Full Name</label>
+              <input value={signupDetails.fullName} onChange={handleChange} type="text" id="fullName" name="fullName" required/>
 
-            <label htmlFor="LastName">Last Name</label>
-              <input value={signupDetails.lastName} onChange={handleChange} type="text" id="lastName" name="lastName" required/>
 
             <label htmlFor="email">Email</label>
               <input value={signupDetails.email} onChange={handleChange} type="email" id="email" name="email" required/>
@@ -117,20 +130,25 @@ const Registerpage = () => {
               </button>
               </div>
 
-            <label htmlFor="confirmPassword">Confirm Password</label>
-              <div className="password"><input value={signupDetails.confirmPassword} onChange={handleChange} type={showPassword ? 'text' : 'password'} id="confirmPassword" name="confirmPassword" required/>
-              <button onClick={togglePasswordVisibility}>
-                {showPassword ? <RiEyeOffFill size={20}/> : <RiEyeFill size={20}/>}
-              </button></div>
-            <button type="submit" >Sign Up</button>
+            <button type="submit" onClick={openLoading} >Sign Up</button>
 
             {/* <span className="successful">{signupDetails.message}</span> */}
+            {
+            loading ? (<Backdrop
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open onClick={closeLoading}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>) 
+            :
+            null
+            }
             {
               // (signupDetails.status==="fail") ? 
               // (<span className="successful">{signupDetails.message}</span>) : 
               // (<span className="successful">{signupDetails.status}</span>)
               (signupDetails.status==="success") ?
-              (<Link to="/connectwallet"><button type="submit">Connect Wallet</button></Link>) :
+              navigate("/dashboard/connectwallet") :
               (<span className="successful">{signupDetails.message}</span>)
             }
           </form>
@@ -146,6 +164,7 @@ const Registerpage = () => {
           <img src={Signup} alt='Welcome'/>
         </div>
       </div>
+    </div>
     </div>
   );
 

@@ -138,7 +138,7 @@ body {
 }
 
 .medisync__registerpage-login-signup {
-    color: #436CDF;
+    color: #436CDF !important;
     padding-left: 10px;
 }
 
