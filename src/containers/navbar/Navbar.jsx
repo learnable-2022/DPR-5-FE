@@ -61,7 +61,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="medisync__navbar-menu">
-        {toggleMenu ? (
+        {/* {toggleMenu ? (
           <RiCloseLine
             color="#000000"
             size={27}
@@ -73,7 +73,7 @@ const Navbar = () => {
             size={27}
             onClick={() => setToggleMenu(true)}
           />
-        )}
+        )} */}
         {toggleMenu ? (
           <RiCloseLine
             color="#460570"
