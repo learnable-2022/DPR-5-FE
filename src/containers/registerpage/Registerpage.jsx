@@ -13,13 +13,14 @@ import CircularProgress from '@mui/material/CircularProgress';
 // import axios from 'axios';
 
 const Registerpage = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
   const [loading,setLoading] = useState(false);
   const [signupDetails, setSignupDetails] = useState({
     fullName: "",
     email: "",
-    password: ""
+    password: "",
+    confirmPassword:""
   });
 
 
@@ -42,16 +43,31 @@ const Registerpage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if(){
-    //   fbbfnbdfd
-    //   return
-    // }
+    const data = {
+      fullName:signupDetails.fullName,
+      email:signupDetails.email,
+      password:signupDetails.password,
+      confirmPassword:signupDetails.confirmPassword
+    } 
 
-    // const payload = {
-    //   firstName: signupDetails.firstName,
-    //   lastName: signupDetails.lastName,
-    //   user: snap.userData._id,
-    // };
+    fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
+      method:"POST",
+      headers:{
+        'Content-Type':'application/json',
+        'Access-Control-Allow-Origin':'*'
+      },
+      body:JSON.stringify(data)
+    })
+    .then((response)=>{
+      return response.json();
+    })
+    .then((userData)=>{
+      // console.log(userData.data.user.id)
+      setSignupDetails(userData);
+    })
+    .catch((err)=>{
+      console.log("Not sent", err)
+    })
 
     try {
       const res = await signUp(signupDetails);
@@ -86,7 +102,7 @@ const Registerpage = () => {
             <p>Fill the form below to sign up</p>
 
             <form className="register-form" onSubmit={handleSubmit}>
-              <label htmlFor="fulltName">First Name</label>
+              <label htmlFor="fulltName">Full Name</label>
               <input
                 value={signupDetails.fullName}
                 onChange={handleChange}
@@ -110,6 +126,9 @@ const Registerpage = () => {
 
             <label htmlFor="password">Password (At least 8 Characters)</label>
               <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
+
+            <label htmlFor="confirmPassword">Password (At least 8 Characters)</label>
+            <input value={signupDetails.confirmPassword} onChange={handleChange} type="password" id="confirmPassword" name="confirmPassword" required/>
 
               <button type="submit" onClick={openLoading}>Sign Up</button>
 
