@@ -90,7 +90,7 @@ const navigate = useNavigate();
       const res = await signUp(signupDetails);
       localStorage.setItem("token", res.data.token);
       store.userData = res.data.data.user;
-      navigate("/dashboard");
+      navigate("/connectwallet");
     } catch (e) {
       toast.error(e);
     }

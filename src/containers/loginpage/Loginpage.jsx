@@ -58,12 +58,27 @@ const Loginpage = () => {
     const closeLoading = () => {
       setLoading(false)
     }
-  const handleChange = (ev) => {
-    setLoginDetails({
-      ...loginDetails,
-      [ev.target.name]: ev.target.value,
-    });
-  };
+
+    if(loading){
+      setTimeout(()=>{
+        setLoading(false)
+        },
+      6000);
+    }
+
+    const handleChange = (ev) => {
+      setLoginDetails((prevData) =>({
+      ...prevData,[ev.target.name] : ev.target.value
+      }));
+    };
+
+  // const handleChange = (ev) => {
+  //   setLoginDetails({
+  //     ...loginDetails,
+  //     [ev.target.name]: ev.target.value,
+  //   });
+  // };
+
   // console.log({ loginDetails });
   // console.log(profile);
   const handleSubmit = async (e) => {
@@ -77,6 +92,9 @@ const Loginpage = () => {
     } catch (error) {
       toast.error(error);
     }
+
+    e.target.reset();
+
   };
 
   const [showPassword, setShowPassword] = useState(false);
