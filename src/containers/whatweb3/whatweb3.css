@@ -1,0 +1,60 @@
+.medisync__whatweb3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+    font-family: var(--font-family);
+}
+
+.medisync__whatweb3-image img {
+
+}
+
+.medisync__whatweb3-text h1 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    color: #1CB335;
+}
+
+.medisync__whatweb3-text p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: justify;
+    color: #1B1A1A;
+    padding-right: 60px;
+}
+
+@media screen and (max-width: 1050px) {
+    .medisync__whatweb3 {
+        flex-wrap: wrap;
+    }
+    
+    .medisync__whatweb3-text p {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .medisync__whatweb3-image img {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width:490px) {
+    .medisync__whatweb3 {
+        padding: 40px 10px;
+    }
+
+    .medisync__whatweb3-text h1 {
+        font-size: 22px;
+        line-height: 20px;
+    }
+    
+    .medisync__whatweb3-text p {
+        font-size: 12px;
+        line-height: 26px;
+    }
+}

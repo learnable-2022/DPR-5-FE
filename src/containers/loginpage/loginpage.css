@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.medisync__loginpage {
+    background: #E8EDFB;
+    padding: 40px;
+    font-family: var(--font-family);
+}
+
+.medisync__loginpage-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medisync__loginpage-body_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.medisync__loginpage-body_form h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    color: #436CDF;
+    margin: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: left;
+    color: #868686;
+}
+
+.login-form input {
+    width: 375px;
+    height: 35px;
+    background: #E8EDFB;
+    border: 2px solid #436CDF;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    padding-left: 10px;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: left;
+    color: #4e4e4e;
+}
+
+.password {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.login-form button  {
+    width: 385px;
+    height: 40px;
+    background: #436CDF;
+    border: none;
+    border-radius: 8px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #F1E6F8;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.password input {
+    width: 339px;
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.password button {
+    background: none;
+    color: #4e4e4e;
+    width: 40px;
+    height:41px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border: 2px solid #436CDF;
+    border-left: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 0;
+}
+
+.login-form button:hover {
+    background: #bbbbbb;
+    color: #436CDF;
+    transition: 0.6s;
+}
+
+.password button:hover {
+    background: none;
+    color: #4e4e4e;
+}
+
+.medisync__loginpage-login {
+    display: flex;
+    background: none;
+    color: #6b6b6b;
+    border: none;
+    margin: 10px 0;
+}
+
+.medisync__loginpage-login-signup {
+    color: #436CDF;
+    padding-left: 10px;
+}
+
+.medisync__loginpage-login span {
+    font-weight: 600;
+    color: #7209B7;
+    cursor: pointer;
+}
+
+.medisync__loginpage-body_image {
+    min-width: 50%;
+    margin: 0 0 30px 0;
+}
+
+.medisync__loginpage-body_image img {
+    max-width: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .medisync__loginpage-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .medisync__loginpage-body_image img {
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .medisync__loginpage-body_form {
+        padding: 30px 50px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .medisync__loginpage {
+        padding: 50px 10px;
+    }
+
+    .login-form input {
+        width: 250px;
+    }
+
+    .login-form button {
+        width: 260px;
+    }
+
+    .password input {
+        width: 210px;
+    }
+
+    .password button {
+        width: 40px;
+    }
+
+    .medisync__loginpage-body_image {
+        margin-bottom: 150px;
+    }
+}

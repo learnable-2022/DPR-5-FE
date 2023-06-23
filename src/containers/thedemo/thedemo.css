@@ -1,0 +1,13 @@
+.medisync__thedemo {
+    font-family: var(--font-family);
+    padding: 60px 40px;
+}
+
+.medisync__thedemo h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.medisync__thedemo iframe {
+    width: 100%;
+}

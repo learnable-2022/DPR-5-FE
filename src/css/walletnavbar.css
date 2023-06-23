@@ -1,0 +1,16 @@
+.wallet_nav-bar {
+  background-color: #C59AE1;
+}
+
+.wallet_nav-bar span{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
