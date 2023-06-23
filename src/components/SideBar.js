@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/logo.png";
+import logo from "../assets/medisync-logo.png";
 import patient from "../images/patient.png";
 import view_medical_record from "../../src/images/upload.png";
 import medical from "../images/view.png";
@@ -14,7 +14,7 @@ const SideBar = () => {
       <img className="logo" src={logo} alt="" />
       <img className="patient_image" src={patient} alt="" />
       <ul>
-        <CustomLink to="/dashboard/medicalrecords" className="dashboard_link">
+        <CustomLink to="/dashboard/medicalrecords" ClassName="dashboard_link">
           <img src={view_medical_record} alt="" />
           <p>View Medical Record</p>
         </CustomLink>

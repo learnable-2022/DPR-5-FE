@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/medisync-logo.png";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
