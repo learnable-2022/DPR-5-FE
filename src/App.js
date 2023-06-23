@@ -10,12 +10,13 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import DashboardLayout from "./components/DashboardLayout";
 import ViewMedicalRecords from "./pages/ViewMedicalRecords";
-import ViewOtherRecords from "./pages/ViewOtherRecords";
+import MyRecords from "./pages/MyRecords";
 import ConnectWalletDr from "./pages/ConnectWalletDr";
 import ManageAccess from "./pages/ManageAccess";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ConnectWallets from "./pages/ConnectWallet";
+import AuthorizedAddresses from "./pages/AuthorizedAddresses";
 
 const App = () => {
   return (
@@ -33,13 +34,18 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/connectwallet" element={<ConnectWallets />} />
+          <Route path="/connectwalletdr" element={<ConnectWalletDr />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route
               path="/dashboard/medicalrecords"
               element={<ViewMedicalRecords />}
             />
-            <Route path="/dashboard/medical" element={<ViewOtherRecords />} />
+            <Route path="/dashboard/myrecords" element={<MyRecords />} />
             <Route path="/dashboard/manageaccess" element={<ManageAccess />} />
+            <Route
+              path="/dashboard/authorizedaddresses"
+              element={<AuthorizedAddresses />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -14,14 +14,17 @@ body{
 .app_container {
   display: flex;
   width: 100%;
+  height: auto;
 }
 
 .side_bar {
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 35px;
   width: 20%;
-  padding: 30px 0 200px 10px;
+  padding: 30px 0 0 10px;
+  border: 1px solid red;
   border-right: 2px solid lightgrey;
 }
 
@@ -31,14 +34,14 @@ body{
 }
 
 .logo {
-  width: 105px;
-  padding-left: 15px;
+  margin-left: 50px;
+  width: 50%;
 }
 
 ul {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 15px;
   padding: 0;
   margin: 0;
 }
@@ -64,7 +67,7 @@ li {
   color: white;
   background-color: #436CDF;
   width: 90%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 section {
@@ -249,6 +252,7 @@ select {
   gap: 10px;
   background-color: white;
   padding: 30px;
+  border: 2px solid lightgrey;
   border-radius: 10px;
   width: 800px;
 }
@@ -268,8 +272,9 @@ select {
   margin: 10px 0 -20px 0;
 }
 
-.modal_body input {
-  width: 100%;
+.modal_body input,
+.modal_body textarea {
+  width: 70%;
   padding: 5px 20px;
 }
 
@@ -312,6 +317,53 @@ select {
   position: absolute;
   top: 78%;
   z-index: 1;
+}
+
+.manage_access {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.688);
+}
+
+.manage_access h5 {
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 20px;
+
+}
+
+.manage_access form {
+  width: 35%;
+}
+
+.manage_access form input {
+  height: 50px;
+  width: 100%;
+}
+
+.manage_access form p {
+  font-size: 20px;
+}
+
+.manage_access button {
+  cursor: pointer;
+}
+
+.blood-group_input,
+.genotype_input,
+.weight_input
+ {
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid grey;
+  margin-top: -30px;
+  padding-left: 10px;
 }
 
 

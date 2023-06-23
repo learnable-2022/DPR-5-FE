@@ -16,7 +16,13 @@ const OtherInformationModal = (props) => {
           <input type="date" className="calendar" />
           <input type="text" placeholder="Disease" />
           <input type="text" placeholder="Description" />
-          <input type="text" placeholder="Medication" />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Medication"
+          ></textarea>
         </div>
         <div className="modal_footer">
           <button>Add</button>

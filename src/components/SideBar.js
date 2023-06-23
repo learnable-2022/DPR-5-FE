@@ -6,6 +6,7 @@ import medical from "../images/view.png";
 import access from "../images/access.png";
 import logout from "../images/logout.png";
 import "../css/styles.css";
+import "../containers/navbar/navbar.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 const SideBar = () => {
@@ -14,19 +15,39 @@ const SideBar = () => {
       <img className="logo" src={logo} alt="" />
       <img className="patient_image" src={patient} alt="" />
       <ul>
-        <CustomLink to="/dashboard/medicalrecords" ClassName="dashboard_link">
+        <CustomLink
+          to="/dashboard/medicalrecords"
+          className="dashboard_link"
+          activeClassName="active"
+        >
           <img src={view_medical_record} alt="" />
           <p>View Medical Record</p>
         </CustomLink>
-        <CustomLink to="/dashboard/medical" className="dashboard_link">
+        <CustomLink
+          to="/dashboard/myrecords"
+          className="dashboard_link"
+          activeClassName="active"
+        >
           <img src={medical} alt="" />
           <p>My Records</p>
         </CustomLink>
-        <CustomLink to="/dashboard/manageaccess" className="dashboard_link">
+        <CustomLink
+          to="/dashboard/manageaccess"
+          className="dashboard_link"
+          activeClassName="active"
+        >
           <img src={access} alt="" />
           <p>Manage Access</p>
         </CustomLink>
-        <CustomLink to="/" className="dashboard_link">
+        <CustomLink
+          to="/dashboard/authorizedaddresses"
+          className="dashboard_link"
+          activeClassName="active"
+        >
+          <img src={access} alt="" />
+          <p>Authorized Access</p>
+        </CustomLink>
+        <CustomLink to="/" className="dashboard_link" activeClassName="active">
           <img src={logout} alt="" />
           <p>Logout</p>
         </CustomLink>
