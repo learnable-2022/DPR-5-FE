@@ -4,10 +4,11 @@ import { useSnapshot } from "valtio";
 
 const NavBar = () => {
   const snap = useSnapshot(store);
-  const fullName = `${snap.userData.firstName} ${snap.userData.lastName}`;
+  // const fullName = `${snap.userData.fullName} ${snap.userData.fullName}`;
   return (
     <div className="nav_bar">
-      <h2>{fullName}</h2>
+      {/* <h2>{fullName}</h2> */}
+      <h2>Hello</h2>
     </div>
   );
 };

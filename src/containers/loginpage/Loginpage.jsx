@@ -122,13 +122,13 @@ const Loginpage = () => {
                   required
                   className="button"
                 />
-                <button onClick={togglePasswordVisibility}>
+                <span onClick={togglePasswordVisibility}>
                   {showPassword ? (
                     <RiEyeOffFill size={20} />
                   ) : (
                     <RiEyeFill size={20} />
                   )}
-                </button>
+                </span>
               </div>
               <button type="submit" onClick={openLoading}>Login</button>
               {
@@ -146,7 +146,7 @@ const Loginpage = () => {
                 // (<span className="successful">{signupDetails.message}</span>) :
                 // (<span className="successful">{signupDetails.status}</span>)
                 loginDetails.status === "success" ? 
-                 navigate("/dashboard/connectwallet")
+                 navigate("/connectwallet")
                 : (
                   <span className="successful">{loginDetails.message}</span>
                 )

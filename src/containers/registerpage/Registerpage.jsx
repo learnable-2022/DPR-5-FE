@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./registerpage.css";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/medisync-logo.png";
+import Navbar from '../navbar/Navbar'
 import Signup from "../../assets/signup.jpg";
+import { RiEyeOffFill, RiEyeFill } from "react-icons/ri";
 import { signUp } from "../../api/auth";
 import store from "../../store/Index";
 import { toast } from "react-toastify";
@@ -33,13 +35,28 @@ const navigate = useNavigate();
       setLoading(false)
     }
 
+    if(loading){
+      setTimeout(()=>{
+        setLoading(false)
+        },
+      6000);
+    }
+
+
+  // const handleChange = (ev) => {
+  //   setSignupDetails({
+  //     ...signupDetails,
+  //     [ev.target.name]: ev.target.value,
+  //   });
+
+  // };
 
   const handleChange = (ev) => {
-    setSignupDetails({
-      ...signupDetails,
-      [ev.target.name]: ev.target.value,
-    });
+    setSignupDetails((prevData) =>({
+    ...prevData,[ev.target.name] : ev.target.value
+    }));
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,6 +94,8 @@ const navigate = useNavigate();
     } catch (e) {
       toast.error(e);
     }
+
+    e.target.reset();
   };
 
   // const userid = localStorage.setItem("id", signupDetails.data);
@@ -90,12 +109,13 @@ const navigate = useNavigate();
 
   return (
     <div>
+      <Navbar />
       <div className="medisync__registerpage">
-        <div className="medisync__registerpage-logo">
+        {/* <div className="medisync__registerpage-logo">
           <Link to="/">
             <img src={Logo} alt="Logo" />
           </Link>
-        </div>
+        </div> */}
         <div className="medisync__registerpage-body">
           <div className="medisync__registerpage-body_form">
             <h1>Get Started</h1>
@@ -112,8 +132,6 @@ const navigate = useNavigate();
                 required
               />
 
-           
-
               <label htmlFor="email">Email</label>
               <input
                 value={signupDetails.email}
@@ -125,12 +143,42 @@ const navigate = useNavigate();
               />
 
             <label htmlFor="password">Password (At least 8 Characters)</label>
-              <input value={signupDetails.password} onChange={handleChange} type="password" id="password" name="password" required/>
+            <div className="password">
+              <input 
+                value={signupDetails.password} 
+                onChange={handleChange} 
+                type={showPassword ? "text" : "password"} 
+                id="password" name="password" required
+              />
+              <span onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <RiEyeOffFill size={20} />
+                ) : (
+                  <RiEyeFill size={20} />
+                )}
+              </span>
+            </div>
 
             <label htmlFor="confirmPassword">Password (At least 8 Characters)</label>
-            <input value={signupDetails.confirmPassword} onChange={handleChange} type="password" id="confirmPassword" name="confirmPassword" required/>
+            <div className="password">
+              <input 
+                value={signupDetails.confirmPassword} 
+                onChange={handleChange} 
+                type={showPassword ? "text" : "password"}
+                id="confirmPassword"
+                name="confirmPassword" required
+              />
 
-              <button type="submit" onClick={openLoading}>Sign Up</button>
+              <span onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <RiEyeOffFill size={20} />
+                ) : (
+                  <RiEyeFill size={20} />
+                )}
+              </span>
+            </div>  
+
+            <button type="submit" onClick={openLoading}>Sign Up</button>
 
             {/* <span className="successful">{signupDetails.message}</span> */}
             {
@@ -148,12 +196,15 @@ const navigate = useNavigate();
               // (<span className="successful">{signupDetails.message}</span>) : 
               // (<span className="successful">{signupDetails.status}</span>)
               (signupDetails.status==="success") ?
-              navigate("/dashboard/connectwallet") :
+              navigate("/connectwallet") :
               (<span className="successful">{signupDetails.message}</span>)
             }
           </form>
           <Link to="/login">
-            <button className='medisync__registerpage-login'>Already have an Account? Log in</button>
+            <div className="medisync__registerpage-signup">
+              <p>Already have an Account?</p>
+              <p className="medisync__registerpage-signup-login">Log in</p>
+            </div>
           </Link>
           {/* {error && <p>{error}</p>} */}
         </div>
