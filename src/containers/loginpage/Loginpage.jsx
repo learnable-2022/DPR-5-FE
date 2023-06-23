@@ -51,20 +51,20 @@ const Loginpage = () => {
 
 
    // handle loading effect
-   const openLoading = () => {
-    setLoading(true)
-    }
+  //  const openLoading = () => {
+  //   setLoading(true)
+  //   }
   
-    const closeLoading = () => {
-      setLoading(false)
-    }
+  //   const closeLoading = () => {
+  //     setLoading(false)
+  //   }
 
-    if(loading){
-      setTimeout(()=>{
-        setLoading(false)
-        },
-      6000);
-    }
+  //   if(loading){
+  //     setTimeout(()=>{
+  //       setLoading(false)
+  //       },
+  //     6000);
+  //   }
 
     const handleChange = (ev) => {
       setLoginDetails((prevData) =>({
@@ -83,17 +83,61 @@ const Loginpage = () => {
   // console.log(profile);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const res = await logIN(loginDetails);
-      console.log("loginres", res);
-      store.userLoginData = res.data.data.user;
-      console.log("details", res.data);
-    } catch (error) {
-      toast.error(error);
+    
+    const data = {
+      email:loginDetails.email,
+      password:loginDetails.password,
     }
 
-    e.target.reset();
+    setLoading(true)
+    try {
+      const res=await fetch('https://medisync-instance.onrender.com/api/v1/user/login',{
+        method:"POST",
+        headers:{
+          'Content-Type':'application/json',
+          'Access-Control-Allow-Origin':'*'
+        },
+        body:JSON.stringify(data)
+      })
+      const userData=await res.json()
+        setLoginDetails((prev)=>{
+        return{...prev, ...userData}
+      })
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    }
+
+    // fetch('https://medisync-instance.onrender.com/api/v1/user/login',{
+    //   method:"POST",
+    //   headers:{
+    //     'Content-Type':'application/json',
+    //     'Access-Control-Allow-Origin':'*'
+    //   },
+    //   body:JSON.stringify(data)
+    // })
+    // .then((response)=>{
+    //   return response.json();
+    // })
+    // .then((userData)=>{
+    //   // console.log(userData.data.user.id)
+    //   setLoginDetails(userData);
+    // })
+    // .catch((err)=>{
+    //   console.log("Not sent", err)
+    // })
+
+    // try {
+    //   const res = await logIN(loginDetails);
+    //   console.log("loginres", res);
+    //   store.userLoginData = res.data.data.user;
+    //   console.log("details", res.data);
+    // } catch (error) {
+    //   toast.error(error);
+    // }
+
+    // e.target.reset();
 
   };
 
@@ -148,11 +192,11 @@ const Loginpage = () => {
                   )}
                 </span>
               </div>
-              <button type="submit" onClick={openLoading}>Login</button>
+              <button type="submit">Login</button>
               {
              loading ? (<Backdrop
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-              open onClick={closeLoading}
+              open
             >
               <CircularProgress color="inherit" />
             </Backdrop>) 

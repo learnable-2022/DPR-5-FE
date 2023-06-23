@@ -27,20 +27,20 @@ const navigate = useNavigate();
 
 
    // handle loading effect
-   const openLoading = () => {
-    setLoading(true)
-    }
+  //  const openLoading = () => {
+  //   setLoading(true)
+  //   }
   
-    const closeLoading = () => {
-      setLoading(false)
-    }
+  //   const closeLoading = () => {
+  //     setLoading(false)
+  //   }
 
-    if(loading){
-      setTimeout(()=>{
-        setLoading(false)
-        },
-      6000);
-    }
+  //   if(loading){
+  //     setTimeout(()=>{
+  //       setLoading(false)
+  //       },
+  //     6000);
+  //   }
 
 
   // const handleChange = (ev) => {
@@ -60,14 +60,17 @@ const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(signupDetails, "Signup Estate")
     const data = {
       fullName:signupDetails.fullName,
       email:signupDetails.email,
       password:signupDetails.password,
       confirmPassword:signupDetails.confirmPassword
-    } 
+    }
 
-    fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
+    setLoading(true)
+    try {
+      const res=await fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
       method:"POST",
       headers:{
         'Content-Type':'application/json',
@@ -75,27 +78,48 @@ const navigate = useNavigate();
       },
       body:JSON.stringify(data)
     })
-    .then((response)=>{
-      return response.json();
-    })
-    .then((userData)=>{
-      // console.log(userData.data.user.id)
-      setSignupDetails(userData);
-    })
-    .catch((err)=>{
-      console.log("Not sent", err)
-    })
-
-    try {
-      const res = await signUp(signupDetails);
-      localStorage.setItem("token", res.data.token);
-      store.userData = res.data.data.user;
-      navigate("/connectwallet");
-    } catch (e) {
-      toast.error(e);
+    const userData=await res.json()
+      setSignupDetails((prev)=>{
+        return{...prev, ...userData}
+      })
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
     }
 
-    e.target.reset();
+    // fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
+    //   method:"POST",
+    //   headers:{
+    //     'Content-Type':'application/json',
+    //     'Access-Control-Allow-Origin':'*'
+    //   },
+    //   body:JSON.stringify(data)
+    // })
+    // .then((response)=>{
+    //   return response.json();
+    // })
+    // .then((userData)=>{
+    //   // console.log(userData.data.user.id)
+    //   // setSignupDetails(userData);
+    //   setSignupDetails((prev)=>{
+    //     return{...prev, ...userData}
+    //   })
+    // })
+    // .catch((err)=>{
+    //   console.log("Not sent", err)
+    // })
+
+    // try {
+    //   const res = await signUp(signupDetails);
+    //   localStorage.setItem("token", res.data.token);
+    //   store.userData = res.data.data.user;
+    //   navigate("/connectwallet");
+    // } catch (e) {
+    //   toast.error(e);
+    // }
+
+    // e.target.reset();
   };
 
   // const userid = localStorage.setItem("id", signupDetails.data);
@@ -144,11 +168,13 @@ const navigate = useNavigate();
 
             <label htmlFor="password">Password (At least 8 Characters)</label>
             <div className="password">
-              <input 
+              <input
                 value={signupDetails.password} 
                 onChange={handleChange} 
                 type={showPassword ? "text" : "password"} 
-                id="password" name="password" required
+                id="password"
+                name="password" 
+                required
               />
               <span onClick={togglePasswordVisibility}>
                 {showPassword ? (
@@ -159,14 +185,15 @@ const navigate = useNavigate();
               </span>
             </div>
 
-            <label htmlFor="confirmPassword">Password (At least 8 Characters)</label>
+            <label htmlFor="confirmPassword">Confirm Password</label>
             <div className="password">
               <input 
                 value={signupDetails.confirmPassword} 
                 onChange={handleChange} 
                 type={showPassword ? "text" : "password"}
                 id="confirmPassword"
-                name="confirmPassword" required
+                name="confirmPassword" 
+                required
               />
 
               <span onClick={togglePasswordVisibility}>
@@ -178,13 +205,13 @@ const navigate = useNavigate();
               </span>
             </div>  
 
-            <button type="submit" onClick={openLoading}>Sign Up</button>
+            <button type="submit" >Sign Up</button>
 
             {/* <span className="successful">{signupDetails.message}</span> */}
             {
             loading ? (<Backdrop
               sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-              open onClick={closeLoading}
+              open 
             >
               <CircularProgress color="inherit" />
             </Backdrop>) 
