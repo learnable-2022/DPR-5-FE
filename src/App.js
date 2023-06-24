@@ -21,10 +21,11 @@ const App = () => {
   return (
     <div>
       <ToastContainer position="bottom-right" limit={1} />
+
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/services" element={<Services />} />
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/connectwallet" element={<ConnectWallets />} />
+          <Route path="/connectwalletdr" element={<ConnectWalletDr />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route
               path="/dashboard/medicalrecords"
