@@ -47,6 +47,11 @@
     cursor: pointer;
 }
 
+.medisync__demo_bg button:hover {
+    background: #179d74;
+    transition: 1s;
+}
+
 @media screen and (max-width: 700px) {
     .medisync__demo_bg p {
         font-size: 20px;
