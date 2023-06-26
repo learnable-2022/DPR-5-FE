@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import "./registerpage.css";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../assets/medisync-logo.png";
+import Navbar from '../navbar/Navbar'
 import Signup from "../../assets/signup.jpg";
+import { RiEyeOffFill, RiEyeFill } from "react-icons/ri";
 import { signUp } from "../../api/auth";
 import store from "../../store/Index";
 import { toast } from "react-toastify";
-import Navbar from "../navbar/Navbar";
+import { snapshot } from "valtio";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Registerpage = () => {
   const navigate = useNavigate();
+  const [loading,setLoading] = useState(false);
   const [signupDetails, setSignupDetails] = useState({
     fullName: "",
     email: "",
@@ -35,6 +41,11 @@ const Registerpage = () => {
     }
   };
   //To toggle the Paasword visibility
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div>
@@ -67,37 +78,76 @@ const Registerpage = () => {
                 required
               />
 
-              <label htmlFor="password">Password (At least 8 Characters)</label>
+            <label htmlFor="password">Password (At least 8 Characters)</label>
+            <div className="password">
               <input
-                value={signupDetails.password}
-                onChange={handleChange}
-                type="password"
+                value={signupDetails.password} 
+                onChange={handleChange} 
+                type={showPassword ? "text" : "password"} 
                 id="password"
-                name="password"
+                name="password" 
                 required
               />
+               <span onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <RiEyeOffFill size={20} />
+                ) : (
+                  <RiEyeFill size={20} />
+                )}
+              </span>
+            </div>
 
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                value={signupDetails.confirmPassword}
-                onChange={handleChange}
-                type="password"
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <div className="password">
+              <input 
+                value={signupDetails.confirmPassword} 
+                onChange={handleChange} 
+                type={showPassword ? "text" : "password"}
                 id="confirmPassword"
                 name="confirmPassword"
                 required
               />
-              <button type="submit">Sign Up</button>
-            </form>
-            <Link to="/login">
-              <button className="medisync__registerpage-login">
-                Already have an Account? Log in
-              </button>
-            </Link>
-            {/* {error && <p>{error}</p>} */}
-          </div>
-          <div className="medisync__registerpage-body_image">
-            <img src={Signup} alt="Welcome" />
-          </div>
+              <span onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <RiEyeOffFill size={20} />
+                ) : (
+                  <RiEyeFill size={20} />
+                )}
+              </span>
+            </div>  
+
+            <button type="submit" onClick={openLoading}>Sign Up</button>
+
+            {/* <span className="successful">{signupDetails.message}</span> */}
+            {
+            loading ? (<Backdrop
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open onClick={closeLoading}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>) 
+            :
+            null
+            }
+            {
+              // (signupDetails.status==="fail") ? 
+              // (<span className="successful">{signupDetails.message}</span>) : 
+              // (<span className="successful">{signupDetails.status}</span>)
+              (signupDetails.status==="success") ?
+              navigate("/connectwallet") :
+              (<span className="successful">{signupDetails.message}</span>)
+            }
+          </form>
+          <Link to="/login">
+            <div className="medisync__registerpage-signup">
+              <p>Already have an Account?</p>
+              <p className="medisync__registerpage-signup-login">Log in</p>
+            </div>
+          </Link>
+          {/* {error && <p>{error}</p>} */}
+        </div>
+        <div className="medisync__registerpage-body_image">
+          <img src={Signup} alt='Welcome'/>
         </div>
       </div>
     </div>

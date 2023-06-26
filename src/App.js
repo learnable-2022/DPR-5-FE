@@ -12,7 +12,7 @@ import DashboardLayout from "./components/DashboardLayout";
 import ViewMedicalRecords from "./pages/ViewMedicalRecords";
 import MyRecords from "./pages/MyRecords";
 import ConnectWalletDr from "./pages/ConnectWalletDr";
-import ManageAccess from "./pages/ManageAccess";
+import ManageAccess from "./containers/ManageAccess/ManageAccess";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ConnectWallets from "./pages/ConnectWallet";
@@ -23,10 +23,11 @@ const App = () => {
   return (
     <div>
       <ToastContainer position="bottom-right" limit={1} />
+
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/services" element={<Services />} />

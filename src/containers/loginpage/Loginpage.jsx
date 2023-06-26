@@ -8,9 +8,12 @@ import { logIn } from "../../api/auth";
 import store from "../../store/Index";
 import { toast } from "react-toastify";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Loginpage = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
@@ -24,14 +27,18 @@ const Loginpage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true);
     try {
       const res = await logIn(loginDetails);
       localStorage.setItem("token", res.token);
       store.userData = res.data.data.user;
       navigate("/connectwallet");
     } catch (error) {
+      setLoading(false);
       toast.error(error);
     }
+
+    e.target.reset();
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -86,6 +93,27 @@ const Loginpage = () => {
                 </button>
               </div>
               <button type="submit">Login</button>
+              {loading ? (
+                <Backdrop
+                  sx={{
+                    color: "#fff",
+                    zIndex: (theme) => theme.zIndex.drawer + 1,
+                  }}
+                  open
+                >
+                  <CircularProgress color="inherit" />
+                </Backdrop>
+              ) : null}
+              {
+                // (signupDetails.status==="fail") ?
+                // (<span className="successful">{signupDetails.message}</span>) :
+                // (<span className="successful">{signupDetails.status}</span>)
+                loginDetails.status === "success" ? (
+                  navigate("/connectwallet")
+                ) : (
+                  <span className="successful">{loginDetails.message}</span>
+                )
+              }
             </form>
             <Link to="/register">
               <div className="medisync__loginpage-login">

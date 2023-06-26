@@ -12,11 +12,11 @@ const Header = () => {
           Technology.
         </h1>
         <p>
-          Medisync simplifies healthcare by collecting data, processing it and
+          Medisync simplifies healthcare by collecting data , processing it and
           saving on the blockchain
         </p>
         <div className="medisync__header-content__demo">
-          <Link to="/demo">
+          <Link to="/register">
             <button type="button">Request for Demo</button>
           </Link>
         </div>
