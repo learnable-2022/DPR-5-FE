@@ -12,6 +12,7 @@ import DashboardLayout from "./components/DashboardLayout";
 import ViewMedicalRecords from "./pages/ViewMedicalRecords";
 import MyRecords from "./pages/MyRecords";
 import ConnectWalletDr from "./pages/ConnectWalletDr";
+import GetAllInfo from "./pages/GetAllInfo";
 import ManageAccess from "./containers/ManageAccess/ManageAccess";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/connectwallet" element={<ConnectWallets />} />
           <Route path="/connectwalletdr" element={<ConnectWalletDr />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="/getallinfo" element={<GetAllInfo />} />
           <Route
               path="/dashboard/medicalrecords"
               element={<ViewMedicalRecords />}

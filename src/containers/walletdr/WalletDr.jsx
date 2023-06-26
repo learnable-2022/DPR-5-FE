@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./walletDr.css";
 import Logo from '../../assets/medisync-logo.png'
+import { useNavigate } from "react-router-dom";
 
 
 const getWallet = () => window.ethereum;
@@ -9,6 +10,7 @@ const eth = getWallet();
 
 
 const WalletDr = () => {
+  const navigate = useNavigate()
   const [currentAccount, setCurrentAccount] = useState("");
 
   const WalletDr = async () => {
@@ -21,6 +23,7 @@ const WalletDr = () => {
 
       setCurrentAccount(accounts[0]);
       alert("welcome User " + accounts[0]);
+      navigate("/getallinfo")
     } else {
       alert("🔴Metamask Not Installed, Please Add Metamask To Your Browser 🔴");
     }
