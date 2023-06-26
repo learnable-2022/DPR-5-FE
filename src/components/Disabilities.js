@@ -10,7 +10,7 @@ const Disabilities = () => {
     <>
       <h3>Disabilities</h3>
       <span>
-        <div className="disabilities_card">
+        <div className="disabilities_card1">
           <img src={no_records} alt="" />
           <p>No Record Yet</p>
         </div>

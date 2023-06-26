@@ -10,7 +10,7 @@ const OtherInformations = () => {
     <>
       <h3>Other Informations</h3>
       <span>
-        <div className="other-information_card">
+        <div className="other-information_card1">
           <img src={no_records} alt="" />
           <p>No Record Yet</p>
         </div>

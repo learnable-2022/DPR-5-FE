@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../css/styles.css";
 import SideBar from "../components/SideBar";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/NavBar";
-import { Outlet, useNavigate } from "react-router-dom";
 
 const DashboardLayout = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    // navigate("/connectwallet");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div className="app_container">
       <SideBar />

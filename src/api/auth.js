@@ -6,8 +6,8 @@ export const signUp = async (userDataObj) => {
   return response;
 };
 
-export const logIN = async () => {
-  const response = await request.post("/user/login");
+export const logIn = async (logInObj) => {
+  const response = await request.post("/user/login", logInObj);
 
   return response;
 };
