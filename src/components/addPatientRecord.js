@@ -11,7 +11,7 @@ const signer = provider.getSigner(); // Get the signer from the provider
 const contract = new ethers.Contract(contractAddress, abi, signer); // Use the signer
 
 const AddPatientRecord = () => {
-  const [error, setError] = useState(null);
+  // const [setError] = useState(null);
 
   const handleAddPatientRecord = async () => {
     try {
@@ -22,7 +22,7 @@ const AddPatientRecord = () => {
       await contract.addPatientRecord(bloodGroup, genotype, weight);
       console.log('Patient record added successfully!');
     } catch (error) {
-      setError(error.message);
+      // setError(error.message);
       console.error('Error adding patient record:', error);
       window.alert(error.message); // Display error as an alert
     }

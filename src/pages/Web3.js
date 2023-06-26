@@ -9,6 +9,7 @@ const Web3 = () => {
           <Footer />
         </div>
     </div>
+    //this helps
   )
 }
 
