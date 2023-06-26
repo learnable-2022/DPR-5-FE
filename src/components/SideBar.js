@@ -6,8 +6,7 @@ import medical from "../images/view.png";
 import access from "../images/access.png";
 import logout from "../images/logout.png";
 import "../css/styles.css";
-import "../containers/navbar/navbar.css";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useMatch, useResolvedPath, NavLink } from "react-router-dom";
 
 const SideBar = () => {
   return (
@@ -47,7 +46,7 @@ const SideBar = () => {
           <img src={access} alt="" />
           <p>Authorized Access</p>
         </CustomLink>
-        <CustomLink to="/" className="dashboard_link" activeClassName="active">
+        <CustomLink to="/" className="dashboard_link logout_btn active">
           <img src={logout} alt="" />
           <p>Logout</p>
         </CustomLink>

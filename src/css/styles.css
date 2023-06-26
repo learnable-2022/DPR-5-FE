@@ -9,6 +9,14 @@ body{
   font-family: var(--font-family);
 }
 
+h2 {
+  font-size: 17px;
+}
+
+p {
+  font-size: 12px;
+}
+
 /* font-family: 'Poppins', sans-serif; */
 
 .app_container {
@@ -20,22 +28,37 @@ body{
 .side_bar {
   display: flex;
   flex-direction: column;
-  height: 100%;
   gap: 35px;
-  width: 20%;
+  width: 15%;
+  height: 90vh;
   padding: 30px 0 0 10px;
-  border: 1px solid red;
   border-right: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+}
+
+.active {
+  color: #179d74;
+  font-weight: 700;
+}
+
+.b-active {
+  color: #436CDF;
+  background: #cecece;
+  box-shadow: 0 0 2px #1B1A1A;
+}
+
+.logout_btn {
+  margin-top: 50%;
 }
 
 .patient_image {
-  width: 70px;
-  margin-left: 80px;
+  width: 50px;
+  margin-left: 35%;
 }
 
 .logo {
   margin-left: 50px;
-  width: 50%;
+  width: 45%;
 }
 
 ul {
@@ -52,7 +75,7 @@ li {
 
 .dashboard_link {  
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   font-size: 15px;
   font-weight: 600;
@@ -66,8 +89,12 @@ li {
 .dashboard_link:hover {
   color: white;
   background-color: #436CDF;
-  width: 90%;
-  border-radius: 10px;
+  width: 85%;
+  border-radius: 5px;
+}
+
+.dashboard_link img {
+  width: 20px;
 }
 
 section {
@@ -79,7 +106,7 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  height: 100px;
+  height: 60px;
   width: 100%;
   background: #436CDF;
   color: white;
@@ -128,7 +155,7 @@ span {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 500;
   color: #494949;
   margin-bottom: 0;
@@ -154,14 +181,14 @@ select {
 
 .info_section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 100px;
   width: 100%;
   margin-bottom: 50px;
 }
 
 input {
-  height: 40px;
+  height: 30px !important;
   width: 200px;
   border-radius: 5px;
   outline: none;
@@ -199,14 +226,18 @@ input {
 .patient-details_first-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  gap: 20px;
+}
+
+.patient-details_first-section input {
+  width: 150px;
 }
 
 select {
-  width: 200px;
+  width: 150px;
   border: 1px solid lightgrey;
   outline: none;
+  font-size: 12px;
 }
 
 .disabilities_card,
@@ -234,11 +265,11 @@ select {
 }
 
 .new-entry_section img {
-  width: 40px;
+  width: 20px;
 }
 
 .new-entry_section h3 {
-  font-size: 18px;
+  font-size: 13px;
   margin-top: 0;
 }
 
@@ -249,23 +280,21 @@ select {
 .modal {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   background-color: white;
   padding: 30px;
   border: 2px solid lightgrey;
   border-radius: 10px;
-  width: 800px;
-}
-
-.modal_title {
-  margin-bottom: 30px;
+  width: 600px;
+  box-shadow: 30px 30px 30px lightgray;
 }
 
 .modal_body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
   margin-bottom: 30px;
+  font-size: 14px;
 }
 
 .modal_body h4:last-of-type {
@@ -274,8 +303,14 @@ select {
 
 .modal_body input,
 .modal_body textarea {
-  width: 70%;
-  padding: 5px 20px;
+  width: 60%;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.modal_body textarea {
+  height: 80px;
 }
 
 .calendar{
@@ -286,7 +321,7 @@ select {
 
 .modal_footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .modal button {
@@ -366,6 +401,11 @@ select {
   padding-left: 10px;
 }
 
+.disabilities-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: -65%;
+}
 
 
 }

@@ -1,7 +1,10 @@
 import request from "./request";
 
-export const allergy = async () => {
-  const response = await request.post("/allergy/648bcf82e3bb1687678b1438");
+export const allergy = async (allergyDetail) => {
+  const response = await request.post(
+    "https://fakestoreapi.com/products/1",
+    allergyDetail
+  );
 
   return response;
 };

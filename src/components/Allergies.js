@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import AllergyModal from "../components/AllergyModal";
 import no_records from "../images/no_record.png";
 import entry from "../images/entry.png";
+import { useSnapshot } from "valtio";
+import store from "../store/Index";
 
 const Allergies = () => {
   const [show, setShow] = useState(false);
+  const snap = useSnapshot(store);
 
   return (
     <div className="allergy">
@@ -12,7 +15,7 @@ const Allergies = () => {
       <span>
         <div className="allergies_card">
           <img src={no_records} alt="" />
-          <p>No Record Yet</p>
+          <p>{snap.allergyData}</p>
         </div>
         <div className="new-entry_section" onClick={() => setShow(true)}>
           <img src={entry} alt="" />

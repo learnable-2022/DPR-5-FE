@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ConnectWallets from "./pages/ConnectWallet";
 import AuthorizedAddresses from "./pages/AuthorizedAddresses";
+import GetAllInfo from "./pages/GetAllInfo";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/connectwallet" element={<ConnectWallets />} />
           <Route path="/connectwalletdr" element={<ConnectWalletDr />} />
+          <Route path="/getallinfo" element={<GetAllInfo />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route
               path="/dashboard/medicalrecords"

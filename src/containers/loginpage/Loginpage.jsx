@@ -79,7 +79,7 @@ const Loginpage = () => {
                 />
                 <button type="button" onClick={togglePasswordVisibility}>
                   {showPassword ? (
-                    <RiEyeOffFill size={20} />
+                    <RiEyeOffFill size={50} />
                   ) : (
                     <RiEyeFill size={20} />
                   )}
