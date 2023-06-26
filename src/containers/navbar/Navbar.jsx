@@ -8,12 +8,12 @@ import { NavLink } from "react-router-dom";
 const Menu = () => (
   <>
     <p>
-      <NavLink exact to="/" activeClassName="active">
+      <NavLink exact to="/" activeClassName="nav-active">
         Home
       </NavLink>
     </p>
     <p>
-      <NavLink to="/about" activeClassName="active">
+      <NavLink to="/about" activeClassName="nav-active">
         About
       </NavLink>
     </p>
@@ -23,12 +23,12 @@ const Menu = () => (
       </NavLink>
     </p> */}
     <p>
-      <NavLink to="/connectwalletdr" activeClassName="active">
+      <NavLink to="/connectwalletdr" activeClassName="nav-active">
         Patient's Record
       </NavLink>
     </p>
     <p>
-      <NavLink to="/services" activeClassName="active">
+      <NavLink to="/services" activeClassName="nav-active">
         Services
       </NavLink>
     </p>
@@ -39,7 +39,7 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <div className="medisync__navbar">
+    <div className="medisync__navbar sticky" >
       <div className="medisync__navbar-container">
         <div className="medisync__navbar-left">
           <img src={logo} alt="logo" />
@@ -50,12 +50,12 @@ const Navbar = () => {
         </div>
 
         <div className="medisync__navbar-right">
-          <Link to="/register" activeClassName="b-active">
+          <Link to="/register" activeClassName="nav-active">
             <button className="signup-buttton" type="button">
               Signup
             </button>
           </Link>
-          <Link to="/login" activeClassName="b-active">
+          <Link to="/login" activeClassName="nav-active">
             <button type="button">Login</button>
           </Link>
         </div>

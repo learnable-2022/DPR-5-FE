@@ -5,6 +5,7 @@ body {
 }
 
 .medisync__registerpage {
+    margin-top: 70px;
     background: #E8EDFB;
     padding: 40px;
     font-family: var(--font-family);

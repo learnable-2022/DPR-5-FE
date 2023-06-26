@@ -1,55 +1,25 @@
 import React, { useState } from "react";
 import "./registerpage.css";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/medisync-logo.png";
-import Navbar from '../navbar/Navbar'
 import Signup from "../../assets/signup.jpg";
-import { RiEyeOffFill, RiEyeFill } from "react-icons/ri";
 import { signUp } from "../../api/auth";
 import store from "../../store/Index";
 import { toast } from "react-toastify";
-import { snapshot } from "valtio";
+import Navbar from "../navbar/Navbar";
+import { RiEyeOffFill, RiEyeFill } from "react-icons/ri";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-// import axios from 'axios';
-
 const Registerpage = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [loading,setLoading] = useState(false);
   const [signupDetails, setSignupDetails] = useState({
     fullName: "",
     email: "",
     password: "",
-    confirmPassword:""
+    confirmPassword: "",
   });
-
-
-   // handle loading effect
-  //  const openLoading = () => {
-  //   setLoading(true)
-  //   }
-  
-  //   const closeLoading = () => {
-  //     setLoading(false)
-  //   }
-
-  //   if(loading){
-  //     setTimeout(()=>{
-  //       setLoading(false)
-  //       },
-  //     6000);
-  //   }
-
-
-  // const handleChange = (ev) => {
-  //   setSignupDetails({
-  //     ...signupDetails,
-  //     [ev.target.name]: ev.target.value,
-  //   });
-
-  // };
 
   const handleChange = (ev) => {
     setSignupDetails((prevData) =>({
@@ -57,10 +27,9 @@ const navigate = useNavigate();
     }));
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(signupDetails, "Signup Estate")
+
     const data = {
       fullName:signupDetails.fullName,
       email:signupDetails.email,
@@ -69,6 +38,15 @@ const navigate = useNavigate();
     }
 
     setLoading(true)
+    try {
+      const res = await signUp(signupDetails);
+      localStorage.setItem("token", res.data.token);
+      store.userData = res.data.data.user;
+      navigate("/connectwallet");
+    } catch (e) {
+      toast.error(e);
+    }
+
     try {
       const res=await fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
       method:"POST",
@@ -87,44 +65,9 @@ const navigate = useNavigate();
       setLoading(false)
       console.log(error)
     }
-
-    // fetch('https://medisync-instance.onrender.com/api/v1/user/signup',{
-    //   method:"POST",
-    //   headers:{
-    //     'Content-Type':'application/json',
-    //     'Access-Control-Allow-Origin':'*'
-    //   },
-    //   body:JSON.stringify(data)
-    // })
-    // .then((response)=>{
-    //   return response.json();
-    // })
-    // .then((userData)=>{
-    //   // console.log(userData.data.user.id)
-    //   // setSignupDetails(userData);
-    //   setSignupDetails((prev)=>{
-    //     return{...prev, ...userData}
-    //   })
-    // })
-    // .catch((err)=>{
-    //   console.log("Not sent", err)
-    // })
-
-    // try {
-    //   const res = await signUp(signupDetails);
-    //   localStorage.setItem("token", res.data.token);
-    //   store.userData = res.data.data.user;
-    //   navigate("/connectwallet");
-    // } catch (e) {
-    //   toast.error(e);
-    // }
-
-    // e.target.reset();
   };
 
-  // const userid = localStorage.setItem("id", signupDetails.data);
-  // console.log(userid)
-//To toggle the Paasword visibility
+  //To toggle the Paasword visibility
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -146,7 +89,7 @@ const navigate = useNavigate();
             <p>Fill the form below to sign up</p>
 
             <form className="register-form" onSubmit={handleSubmit}>
-              <label htmlFor="fulltName">Full Name</label>
+              <label htmlFor="fullName">Full Name</label>
               <input
                 value={signupDetails.fullName}
                 onChange={handleChange}
@@ -242,68 +185,6 @@ const navigate = useNavigate();
     </div>
     </div>
   );
-}
-
-// const Registerpage = (props) => {
-//   const [email, setEmail] = useState("");
-//   const [pass, setPass] = useState("");
-//   const [name, setName] = useState("");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(email);
-
-//     return (
-//       <div className="medisync__registerpage">
-//         <div className="medisync__registerpage-logo">
-//           <img src={Logo} alt="Logo" />
-//         </div>
-//         <div className="medisync__registerpage-body">
-//           <div className="medisync__registerpage-body_form">
-//             <h1>Get Started</h1>
-//             <p>Fill the form below to sign up</p>
-//             <form className="register-form" onSubmit={handleSubmit}>
-//               <label htmlFor="name">Full Name</label>
-//               <input
-//                 value={name}
-//                 onChange={(e) => setName(e.target.value)}
-//                 type="text"
-//                 id="name"
-//                 name="name"
-//               />
-
-//               <label htmlFor="email">Email</label>
-//               <input
-//                 value={email}
-//                 onChange={(e) => setEmail(e.target.value)}
-//                 type="email"
-//                 id="email"
-//                 name="email"
-//               />
-
-//               <label htmlFor="password">Password</label>
-//               <input
-//                 value={pass}
-//                 onChange={(e) => setPass(e.target.value)}
-//                 type="password"
-//                 id="password"
-//                 name="password"
-//               />
-//               <button type="submit">Sign Up</button>
-//             </form>
-//             <Link to="/login">
-//               <button className="medisync__registerpage-login">
-//                 Already have an Account? Log in
-//               </button>
-//             </Link>
-//           </div>
-//           <div className="medisync__registerpage-body_image">
-//             {/* <img src={Welcome} alt="Welcome" /> */}
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   };
-// };
+};
 
 export default Registerpage;

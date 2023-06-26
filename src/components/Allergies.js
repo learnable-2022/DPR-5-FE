@@ -10,7 +10,7 @@ const Allergies = () => {
     <div className="allergy">
       <h3>Allergies</h3>
       <span>
-        <div className="allergies_card">
+        <div className="allergies_card1">
           <img src={no_records} alt="" />
           <p>No Record Yet</p>
         </div>

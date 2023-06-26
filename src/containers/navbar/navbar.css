@@ -32,13 +32,24 @@
     }
   }
 
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
 .medisync__navbar {
+    position:fixed;
+    float: left;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 13px 40px;
     background: #f6f6f6;
     font-family: var(--font-family);
+    margin: 0;
+    top: 0;
     
 }
 
