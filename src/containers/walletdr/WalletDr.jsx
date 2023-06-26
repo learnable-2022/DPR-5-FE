@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./walletDr.css";
 import Logo from '../../assets/medisync-logo.png'
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ const eth = getWallet();
 
 const WalletDr = () => {
   const navigate = useNavigate()
-  const [currentAccount, setCurrentAccount] = useState("");
+  const [ setCurrentAccount] = useState("");
 
   const WalletDr = async () => {
     if (typeof eth !== "undefined") {

@@ -10,7 +10,7 @@ const contract = new ethers.Contract(contractAddress, contractABI, provider);
 const GetAllInfo = () => {
   const [patientAddress, setPatientAddress] = useState('');
   const [patientInfo, setPatientInfo] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+//   const [errorMessage, setErrorMessage] = useState('');
 
   const handleViewClick = async () => {
     try {

@@ -11,7 +11,7 @@ const signer = provider.getSigner(); // Get the signer from the provider
 const contract = new ethers.Contract(contractAddress, abi, signer); // Use the signer
 
 const AddPatientRecord = () => {
-  const [error, setError] = useState(null);
+  // const [setError] = useState(null);
 
   const handleAddPatientRecord = async () => {
     try {

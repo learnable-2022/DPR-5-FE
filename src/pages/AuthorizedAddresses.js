@@ -36,7 +36,7 @@ const GetAuthorizedAddresses = () => {
                   <tr>
                 {/* <th>Wallet Address:</th> */}
                 {
-                  index=="0" ?
+                  index==="0" ?
                   (<th>Name:</th>)
                   : 
                   (<th>Wallet Address:</th>)
