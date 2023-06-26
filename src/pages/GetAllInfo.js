@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ethers } from 'ethers';
 import contractABI from '../components/contractABI.json'; // Replace with the actual path to your contract ABI JSON file
 import Logo from '../assets/medisync-logo.png';
+import { toast } from 'react-toastify';
 
 const provider = new ethers.providers.Web3Provider(window.ethereum); // Use MetaMask as the provider
 const contractAddress = '0x8084B71fd847053621f36a3A87DDC885f45A467D'; // Replace with your contract address
@@ -16,11 +17,11 @@ const GetAllInfo = () => {
     try {
       const patientInfo = await contract.getAllInfo(patientAddress);
       setPatientInfo(patientInfo);
-      setErrorMessage('');
+    //   setErrorMessage('');
     } catch (error) {
       console.error(error);
-      setErrorMessage(error.message);
-      alert('Failed: ' + error.message);
+    //   setErrorMessage(error.message);
+      toast.error('Failed: ' + error.message);
     }
   };
 

@@ -22,7 +22,7 @@ const AddPatientRecord = () => {
       await contract.addPatientRecord(bloodGroup, genotype, weight);
       console.log('Patient record added successfully!');
     } catch (error) {
-      setError(error.message);
+      // setError(error.message);
       console.error('Error adding patient record:', error);
       window.alert(error.message); // Display error as an alert
     }
